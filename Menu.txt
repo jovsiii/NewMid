@@ -1,0 +1,3 @@
+Coffee|40
+shot|20
+cape|50
