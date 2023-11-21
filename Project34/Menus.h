@@ -113,6 +113,9 @@ namespace Project34 {
 
 
 
+
+
+
 	protected:
 
 	protected:
@@ -156,6 +159,7 @@ namespace Project34 {
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Menus::typeid));
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
 			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
@@ -203,7 +207,6 @@ namespace Project34 {
 			this->panelHome = (gcnew System::Windows::Forms::Panel());
 			this->lblHome = (gcnew System::Windows::Forms::Label());
 			this->btnOrder = (gcnew System::Windows::Forms::Button());
-			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->panel2->SuspendLayout();
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
@@ -264,6 +267,18 @@ namespace Project34 {
 			this->panel1->Size = System::Drawing::Size(1016, 615);
 			this->panel1->TabIndex = 4;
 			this->panel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &Menus::panel1_Paint_1);
+			// 
+			// button4
+			// 
+			this->button4->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(213)), static_cast<System::Int32>(static_cast<System::Byte>(206)),
+				static_cast<System::Int32>(static_cast<System::Byte>(163)));
+			this->button4->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
+			this->button4->Location = System::Drawing::Point(882, 571);
+			this->button4->Name = L"button4";
+			this->button4->Size = System::Drawing::Size(88, 38);
+			this->button4->TabIndex = 14;
+			this->button4->Text = L"Reciept";
+			this->button4->UseVisualStyleBackColor = false;
 			// 
 			// button3
 			// 
@@ -365,9 +380,9 @@ namespace Project34 {
 			this->label19->ForeColor = System::Drawing::Color::White;
 			this->label19->Location = System::Drawing::Point(44, 249);
 			this->label19->Name = L"label19";
-			this->label19->Size = System::Drawing::Size(64, 13);
+			this->label19->Size = System::Drawing::Size(30, 13);
 			this->label19->TabIndex = 12;
-			this->label19->Text = L"Drink name:";
+			this->label19->Text = L"Size:";
 			// 
 			// comboBox2
 			// 
@@ -437,9 +452,9 @@ namespace Project34 {
 			this->label16->ForeColor = System::Drawing::Color::White;
 			this->label16->Location = System::Drawing::Point(41, 191);
 			this->label16->Name = L"label16";
-			this->label16->Size = System::Drawing::Size(64, 13);
+			this->label16->Size = System::Drawing::Size(59, 13);
 			this->label16->TabIndex = 5;
-			this->label16->Text = L"Drink name:";
+			this->label16->Text = L"Item name:";
 			// 
 			// label15
 			// 
@@ -828,18 +843,6 @@ namespace Project34 {
 			this->btnOrder->Text = L"Order Now";
 			this->btnOrder->UseVisualStyleBackColor = false;
 			// 
-			// button4
-			// 
-			this->button4->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(213)), static_cast<System::Int32>(static_cast<System::Byte>(206)),
-				static_cast<System::Int32>(static_cast<System::Byte>(163)));
-			this->button4->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
-			this->button4->Location = System::Drawing::Point(874, 571);
-			this->button4->Name = L"button4";
-			this->button4->Size = System::Drawing::Size(88, 38);
-			this->button4->TabIndex = 14;
-			this->button4->Text = L"Remove";
-			this->button4->UseVisualStyleBackColor = false;
-			// 
 			// Menus
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -901,25 +904,23 @@ namespace Project34 {
 
 	private:void ItemsSetter() {
 		if (comboBox1->SelectedItem != nullptr && comboBox2->SelectedItem != nullptr && !String::IsNullOrEmpty(textBox1->Text)) {
-			// Check if textBox1 contains only numbers
+			
 			int numericValue;
 			if (Int32::TryParse(textBox1->Text, numericValue) && numericValue < 99) {
-				// Create a new row array to match the number of columns
+				
 				array<Object^>^ rowValues = gcnew array<Object^>(dataGridView1->Columns->Count);
 
-				// Set the value for the first column (assuming there is only one column for simplicity)
 				rowValues[0] = comboBox1->SelectedItem;
 
-				// Set the value for the second column
+				
 				rowValues[1] = comboBox2->SelectedItem;
 
-				// Add the value from the TextBox to the third column
+				
 				rowValues[2] = numericValue;
 
-				// Add the row to the DataGridView
+				
 				dataGridView1->Rows->Add(rowValues);
 
-				// Clear the selection in the ComboBoxes and TextBox (optional)
 				comboBox1->SelectedIndex = -1;
 				comboBox2->SelectedIndex = -1;
 				textBox1->Text = "";
