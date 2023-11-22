@@ -24,15 +24,18 @@ namespace Project34 {
 			//TODO: Add the constructor code here
 			//
 			fill();
-			dataGridView1->Columns->Add("Column1", "ITEM");
-			dataGridView1->Columns->Add("Column2", "PRICE");
-			dataGridView1->Columns->Add("Column3", "QUANTITY");
-			// Set DataGridView dimensions
+			dataGridView1->Columns->Add("Column1", "Drink Name");
+			dataGridView1->Columns->Add("Column2", "Price");
+			dataGridView1->Columns->Add("Column3", "Quantity");
+			dataGridView1->Columns->Add("Total", "Total");
+			// Set the background color and text color for selected cells
+			dataGridView1->DefaultCellStyle->SelectionBackColor = Color::FromArgb(60, 42, 33);
 			
-			// Set AutoSizeColumnsMode to Fill to ensure even distribution
+
+			// Set DataGridView dimensions
 			dataGridView1->AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode::Fill;
-			dataGridView1->Width = 550;  
-			dataGridView1->Height = 400;
+		
+			
 		}
 
 	protected:
@@ -95,15 +98,21 @@ namespace Project34 {
 	private: System::Windows::Forms::ComboBox^ comboBox1;
 	private: System::Windows::Forms::PictureBox^ pictureBox2;
 	private: System::Windows::Forms::Label^ label18;
+	private: System::Windows::Forms::Button^ btnAdd;
+	private: System::Windows::Forms::Button^ btnSeeMenu;
 
-	private: System::Windows::Forms::Button^ button2;
-	private: System::Windows::Forms::Button^ button1;
+
+
 
 	private: System::Windows::Forms::Label^ label19;
 	private: System::Windows::Forms::ComboBox^ comboBox2;
+
+	private: System::Windows::Forms::Button^ btnRemove;
+	private: System::Windows::Forms::Button^ btnReciept;
 	private: System::Windows::Forms::DataGridView^ dataGridView1;
-	private: System::Windows::Forms::Button^ button3;
-	private: System::Windows::Forms::Button^ button4;
+
+
+
 
 
 
@@ -155,13 +164,13 @@ namespace Project34 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle2 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle1 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Menus::typeid));
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
-			this->button4 = (gcnew System::Windows::Forms::Button());
-			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
+			this->btnReciept = (gcnew System::Windows::Forms::Button());
+			this->btnRemove = (gcnew System::Windows::Forms::Button());
 			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
 			this->label18 = (gcnew System::Windows::Forms::Label());
 			this->panelTop1 = (gcnew System::Windows::Forms::Panel());
@@ -169,8 +178,8 @@ namespace Project34 {
 			this->panel4 = (gcnew System::Windows::Forms::Panel());
 			this->label19 = (gcnew System::Windows::Forms::Label());
 			this->comboBox2 = (gcnew System::Windows::Forms::ComboBox());
-			this->button2 = (gcnew System::Windows::Forms::Button());
-			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->btnAdd = (gcnew System::Windows::Forms::Button());
+			this->btnSeeMenu = (gcnew System::Windows::Forms::Button());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
 			this->label17 = (gcnew System::Windows::Forms::Label());
@@ -255,9 +264,9 @@ namespace Project34 {
 			// 
 			// panel1
 			// 
-			this->panel1->Controls->Add(this->button4);
-			this->panel1->Controls->Add(this->button3);
 			this->panel1->Controls->Add(this->dataGridView1);
+			this->panel1->Controls->Add(this->btnReciept);
+			this->panel1->Controls->Add(this->btnRemove);
 			this->panel1->Controls->Add(this->pictureBox2);
 			this->panel1->Controls->Add(this->label18);
 			this->panel1->Controls->Add(this->panelTop1);
@@ -268,46 +277,52 @@ namespace Project34 {
 			this->panel1->TabIndex = 4;
 			this->panel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &Menus::panel1_Paint_1);
 			// 
-			// button4
-			// 
-			this->button4->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(213)), static_cast<System::Int32>(static_cast<System::Byte>(206)),
-				static_cast<System::Int32>(static_cast<System::Byte>(163)));
-			this->button4->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
-			this->button4->Location = System::Drawing::Point(882, 571);
-			this->button4->Name = L"button4";
-			this->button4->Size = System::Drawing::Size(88, 38);
-			this->button4->TabIndex = 14;
-			this->button4->Text = L"Reciept";
-			this->button4->UseVisualStyleBackColor = false;
-			// 
-			// button3
-			// 
-			this->button3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(213)), static_cast<System::Int32>(static_cast<System::Byte>(206)),
-				static_cast<System::Int32>(static_cast<System::Byte>(163)));
-			this->button3->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
-			this->button3->Location = System::Drawing::Point(446, 571);
-			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(88, 38);
-			this->button3->TabIndex = 13;
-			this->button3->Text = L"Remove";
-			this->button3->UseVisualStyleBackColor = false;
-			this->button3->Click += gcnew System::EventHandler(this, &Menus::button3_Click);
-			// 
 			// dataGridView1
 			// 
 			this->dataGridView1->AllowUserToAddRows = false;
 			this->dataGridView1->AllowUserToDeleteRows = false;
 			this->dataGridView1->AllowUserToResizeColumns = false;
 			this->dataGridView1->AllowUserToResizeRows = false;
-			dataGridViewCellStyle2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)),
+			dataGridViewCellStyle1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)),
 				static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)));
-			this->dataGridView1->AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+			this->dataGridView1->AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+			this->dataGridView1->BackgroundColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(213)),
+				static_cast<System::Int32>(static_cast<System::Byte>(206)), static_cast<System::Int32>(static_cast<System::Byte>(163)));
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Location = System::Drawing::Point(446, 154);
+			this->dataGridView1->GridColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(213)), static_cast<System::Int32>(static_cast<System::Byte>(206)),
+				static_cast<System::Int32>(static_cast<System::Byte>(163)));
+			this->dataGridView1->Location = System::Drawing::Point(447, 145);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->ReadOnly = true;
+			this->dataGridView1->RowHeadersBorderStyle = System::Windows::Forms::DataGridViewHeaderBorderStyle::Single;
 			this->dataGridView1->Size = System::Drawing::Size(524, 411);
 			this->dataGridView1->TabIndex = 9;
+			// 
+			// btnReciept
+			// 
+			this->btnReciept->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(213)), static_cast<System::Int32>(static_cast<System::Byte>(206)),
+				static_cast<System::Int32>(static_cast<System::Byte>(163)));
+			this->btnReciept->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
+			this->btnReciept->Location = System::Drawing::Point(883, 562);
+			this->btnReciept->Name = L"btnReciept";
+			this->btnReciept->Size = System::Drawing::Size(88, 38);
+			this->btnReciept->TabIndex = 14;
+			this->btnReciept->Text = L"Reciept";
+			this->btnReciept->UseVisualStyleBackColor = false;
+			this->btnReciept->Click += gcnew System::EventHandler(this, &Menus::btnReciept_Click);
+			// 
+			// btnRemove
+			// 
+			this->btnRemove->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(213)), static_cast<System::Int32>(static_cast<System::Byte>(206)),
+				static_cast<System::Int32>(static_cast<System::Byte>(163)));
+			this->btnRemove->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
+			this->btnRemove->Location = System::Drawing::Point(447, 562);
+			this->btnRemove->Name = L"btnRemove";
+			this->btnRemove->Size = System::Drawing::Size(88, 38);
+			this->btnRemove->TabIndex = 13;
+			this->btnRemove->Text = L"Remove";
+			this->btnRemove->UseVisualStyleBackColor = false;
+			this->btnRemove->Click += gcnew System::EventHandler(this, &Menus::button3_Click);
 			// 
 			// pictureBox2
 			// 
@@ -326,7 +341,7 @@ namespace Project34 {
 			this->label18->Font = (gcnew System::Drawing::Font(L"Montserrat ExtraBold", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label18->ForeColor = System::Drawing::Color::White;
-			this->label18->Location = System::Drawing::Point(455, 118);
+			this->label18->Location = System::Drawing::Point(455, 108);
 			this->label18->Name = L"label18";
 			this->label18->Size = System::Drawing::Size(68, 37);
 			this->label18->TabIndex = 7;
@@ -362,8 +377,8 @@ namespace Project34 {
 				static_cast<System::Int32>(static_cast<System::Byte>(32)));
 			this->panel4->Controls->Add(this->label19);
 			this->panel4->Controls->Add(this->comboBox2);
-			this->panel4->Controls->Add(this->button2);
-			this->panel4->Controls->Add(this->button1);
+			this->panel4->Controls->Add(this->btnAdd);
+			this->panel4->Controls->Add(this->btnSeeMenu);
 			this->panel4->Controls->Add(this->textBox1);
 			this->panel4->Controls->Add(this->comboBox1);
 			this->panel4->Controls->Add(this->label17);
@@ -389,39 +404,39 @@ namespace Project34 {
 			this->comboBox2->AllowDrop = true;
 			this->comboBox2->FormattingEnabled = true;
 			this->comboBox2->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"29", L"39" });
-			this->comboBox2->Location = System::Drawing::Point(44, 265);
+			this->comboBox2->Location = System::Drawing::Point(47, 265);
 			this->comboBox2->Name = L"comboBox2";
 			this->comboBox2->Size = System::Drawing::Size(299, 21);
 			this->comboBox2->TabIndex = 11;
 			// 
-			// button2
+			// btnAdd
 			// 
-			this->button2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(213)), static_cast<System::Int32>(static_cast<System::Byte>(206)),
+			this->btnAdd->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(213)), static_cast<System::Int32>(static_cast<System::Byte>(206)),
 				static_cast<System::Int32>(static_cast<System::Byte>(163)));
-			this->button2->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
-			this->button2->Location = System::Drawing::Point(219, 413);
-			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(88, 38);
-			this->button2->TabIndex = 10;
-			this->button2->Text = L"Add";
-			this->button2->UseVisualStyleBackColor = false;
-			this->button2->Click += gcnew System::EventHandler(this, &Menus::button2_Click);
+			this->btnAdd->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
+			this->btnAdd->Location = System::Drawing::Point(254, 362);
+			this->btnAdd->Name = L"btnAdd";
+			this->btnAdd->Size = System::Drawing::Size(89, 50);
+			this->btnAdd->TabIndex = 10;
+			this->btnAdd->Text = L"Add";
+			this->btnAdd->UseVisualStyleBackColor = false;
+			this->btnAdd->Click += gcnew System::EventHandler(this, &Menus::button2_Click);
 			// 
-			// button1
+			// btnSeeMenu
 			// 
-			this->button1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(213)), static_cast<System::Int32>(static_cast<System::Byte>(206)),
+			this->btnSeeMenu->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(213)), static_cast<System::Int32>(static_cast<System::Byte>(206)),
 				static_cast<System::Int32>(static_cast<System::Byte>(163)));
-			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
-			this->button1->Location = System::Drawing::Point(67, 413);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(88, 38);
-			this->button1->TabIndex = 9;
-			this->button1->Text = L"See Menu";
-			this->button1->UseVisualStyleBackColor = false;
+			this->btnSeeMenu->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
+			this->btnSeeMenu->Location = System::Drawing::Point(44, 362);
+			this->btnSeeMenu->Name = L"btnSeeMenu";
+			this->btnSeeMenu->Size = System::Drawing::Size(88, 50);
+			this->btnSeeMenu->TabIndex = 9;
+			this->btnSeeMenu->Text = L"See Menu";
+			this->btnSeeMenu->UseVisualStyleBackColor = false;
 			// 
 			// textBox1
 			// 
-			this->textBox1->Location = System::Drawing::Point(44, 358);
+			this->textBox1->Location = System::Drawing::Point(46, 325);
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(299, 20);
 			this->textBox1->TabIndex = 8;
@@ -440,7 +455,7 @@ namespace Project34 {
 			// 
 			this->label17->AutoSize = true;
 			this->label17->ForeColor = System::Drawing::Color::White;
-			this->label17->Location = System::Drawing::Point(43, 324);
+			this->label17->Location = System::Drawing::Point(44, 299);
 			this->label17->Name = L"label17";
 			this->label17->Size = System::Drawing::Size(49, 13);
 			this->label17->TabIndex = 6;
@@ -463,7 +478,7 @@ namespace Project34 {
 			this->label15->Font = (gcnew System::Drawing::Font(L"Montserrat ExtraBold", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label15->ForeColor = System::Drawing::Color::White;
-			this->label15->Location = System::Drawing::Point(37, 118);
+			this->label15->Location = System::Drawing::Point(37, 108);
 			this->label15->Name = L"label15";
 			this->label15->Size = System::Drawing::Size(192, 37);
 			this->label15->TabIndex = 4;
@@ -888,13 +903,9 @@ namespace Project34 {
 				StreamReader^ file = gcnew StreamReader(filePath);
 				String^ line;
 
-				while ((line = file->ReadLine()) != nullptr) {
-					array<String^>^ parts = line->Split('|');
-					if (parts->Length > 0) {
-						comboBox1->Items->Add(parts[0]->Trim());
-					}
+				while ((line = file->ReadLine()) != nullptr) {	
+						comboBox1->Items->Add(line);
 				}
-
 				file->Close();
 			}
 			catch (IOException^ ex) {
@@ -902,28 +913,33 @@ namespace Project34 {
 			}
 	}
 
-	private:void ItemsSetter() {
+	private: void ItemsSetter() {
+
 		if (comboBox1->SelectedItem != nullptr && comboBox2->SelectedItem != nullptr && !String::IsNullOrEmpty(textBox1->Text)) {
-			
 			int numericValue;
 			if (Int32::TryParse(textBox1->Text, numericValue) && numericValue < 99) {
-				
 				array<Object^>^ rowValues = gcnew array<Object^>(dataGridView1->Columns->Count);
 
 				rowValues[0] = comboBox1->SelectedItem;
-
-				
 				rowValues[1] = comboBox2->SelectedItem;
-
-				
 				rowValues[2] = numericValue;
 
-				
-				dataGridView1->Rows->Add(rowValues);
+				// Calculate total by multiplying Price and Quantity
+				double price, quantity;
+				if (Double::TryParse(comboBox2->SelectedItem->ToString(), price) &&
+					Double::TryParse(textBox1->Text, quantity)) {
+					double total = price * quantity;
+					rowValues[3] = total;
 
-				comboBox1->SelectedIndex = -1;
-				comboBox2->SelectedIndex = -1;
-				textBox1->Text = "";
+					dataGridView1->Rows->Add(rowValues);
+
+					comboBox1->SelectedIndex = -1;
+					comboBox2->SelectedIndex = -1;
+					textBox1->Text = "";
+				}
+				else {
+					MessageBox::Show("Invalid numeric values in 'Price' or 'Quantity' columns.");
+				}
 			}
 			else {
 				MessageBox::Show("Please enter a valid number (less than 99) in the TextBox.");
@@ -933,6 +949,20 @@ namespace Project34 {
 			MessageBox::Show("Please select an item from both ComboBoxes and fill the TextBox.");
 		}
 	}
+	private: void deleter() {
+		if (dataGridView1->SelectedRows->Count > 0) {
+		 // Get the index of the selected row
+		int selectedIndex = dataGridView1->SelectedRows[0]->Index;
+
+		// Remove the selected row from the DataGridView
+		dataGridView1->Rows->RemoveAt(selectedIndex);
+			 }
+		else {
+		MessageBox::Show("Please select a row to remove.");
+		}
+	}
+
+
 		//GUI COMPONENTS
 	private: System::Void Menus_Load(System::Object^ sender, System::EventArgs^ e) {
 		panelMenu->Hide();
@@ -943,8 +973,11 @@ namespace Project34 {
 		Rounded::RoundCorners(panelHome, 30);
 		Rounded::RoundCorners(panelTop, 30);
 		Rounded::RoundCorners(panelTop1, 30);
-		ButtonStyler::CurveButton(btnOrder, 30);
 
+		array<Button^>^ buttons = gcnew array<Button^>{btnAdd,btnOrder,btnReciept,btnRemove,btnSeeMenu };
+		for each (Button ^ button in buttons) {
+			ButtonStyler::CurveButton(button, 20);
+		}
 	}
 	private: System::Void panelHome_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 	}
@@ -960,20 +993,33 @@ namespace Project34 {
 	private: System::Void panel1_Paint_1(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 	}
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-	ItemsSetter();
+		ItemsSetter();
 	}
-	
 	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
-		if (dataGridView1->SelectedRows->Count > 0) {
-			// Get the index of the selected row
-			int selectedIndex = dataGridView1->SelectedRows[0]->Index;
+		deleter();
+	}
 
-			// Remove the selected row from the DataGridView
-			dataGridView1->Rows->RemoveAt(selectedIndex);
-		}
-		else {
-			MessageBox::Show("Please select a row to remove.");
+
+private: System::Void btnReciept_Click(System::Object^ sender, System::EventArgs^ e) {
+	int columnIndex = 3; // Change this to the correct column index
+
+	int total = 0;
+
+	for each (DataGridViewRow ^ row in dataGridView1->Rows) {
+		// Check if the row is not empty (avoiding the new row at the bottom)
+		if (row->IsNewRow) continue;
+
+		// Get the value in the specified column
+		Object^ value = row->Cells[columnIndex]->Value;
+
+		// Check if the value is not null and is convertible to an integer
+		if (value != nullptr) {
+			total += Convert::ToInt32(value);
 		}
 	}
+
+	// Display the total or use it as needed
+	MessageBox::Show("Sum of Prices: " + total);
+}
 };
 }

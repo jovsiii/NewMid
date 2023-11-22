@@ -20,6 +20,9 @@ public:
 
         control->Region = gcnew System::Drawing::Region(path);
     }
+
+
+
 };
 
 public ref class ButtonStyler
