@@ -190,6 +190,15 @@ private: System::Windows::Forms::Button^ btnBackMenu;
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Menus::typeid));
 			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle1 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
+			this->label7 = (gcnew System::Windows::Forms::Label());
+			this->label6 = (gcnew System::Windows::Forms::Label());
+			this->lblEB = (gcnew System::Windows::Forms::Label());
+			this->label4 = (gcnew System::Windows::Forms::Label());
+			this->panelHolder9 = (gcnew System::Windows::Forms::Panel());
+			this->panelHolder6 = (gcnew System::Windows::Forms::Panel());
+			this->panelHolder7 = (gcnew System::Windows::Forms::Panel());
+			this->panelHolder5 = (gcnew System::Windows::Forms::Panel());
+			this->panelHolder4 = (gcnew System::Windows::Forms::Panel());
 			this->panelOrder = (gcnew System::Windows::Forms::Panel());
 			this->panelMenu = (gcnew System::Windows::Forms::Panel());
 			this->btnBackMenu = (gcnew System::Windows::Forms::Button());
@@ -209,6 +218,12 @@ private: System::Windows::Forms::Button^ btnBackMenu;
 			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->btnReciept = (gcnew System::Windows::Forms::Button());
 			this->btnRemove = (gcnew System::Windows::Forms::Button());
+			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
+			this->label18 = (gcnew System::Windows::Forms::Label());
+			this->panelTop1 = (gcnew System::Windows::Forms::Panel());
+			this->label14 = (gcnew System::Windows::Forms::Label());
+			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
+			this->btnBackOrder = (gcnew System::Windows::Forms::Button());
 			this->panel4 = (gcnew System::Windows::Forms::Panel());
 			this->label19 = (gcnew System::Windows::Forms::Label());
 			this->comboBox2 = (gcnew System::Windows::Forms::ComboBox());
@@ -219,21 +234,6 @@ private: System::Windows::Forms::Button^ btnBackMenu;
 			this->label17 = (gcnew System::Windows::Forms::Label());
 			this->label16 = (gcnew System::Windows::Forms::Label());
 			this->label15 = (gcnew System::Windows::Forms::Label());
-			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
-			this->label18 = (gcnew System::Windows::Forms::Label());
-			this->panelTop1 = (gcnew System::Windows::Forms::Panel());
-			this->label14 = (gcnew System::Windows::Forms::Label());
-			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
-			this->btnBackOrder = (gcnew System::Windows::Forms::Button());
-			this->label7 = (gcnew System::Windows::Forms::Label());
-			this->label6 = (gcnew System::Windows::Forms::Label());
-			this->lblEB = (gcnew System::Windows::Forms::Label());
-			this->label4 = (gcnew System::Windows::Forms::Label());
-			this->panelHolder9 = (gcnew System::Windows::Forms::Panel());
-			this->panelHolder6 = (gcnew System::Windows::Forms::Panel());
-			this->panelHolder7 = (gcnew System::Windows::Forms::Panel());
-			this->panelHolder5 = (gcnew System::Windows::Forms::Panel());
-			this->panelHolder4 = (gcnew System::Windows::Forms::Panel());
 			this->panelHolder3 = (gcnew System::Windows::Forms::Panel());
 			this->panelHolder2 = (gcnew System::Windows::Forms::Panel());
 			this->panelHolder1 = (gcnew System::Windows::Forms::Panel());
@@ -257,10 +257,10 @@ private: System::Windows::Forms::Button^ btnBackMenu;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->BeginInit();
 			this->panelTop->SuspendLayout();
-			this->panel4->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			this->panelTop1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
+			this->panel4->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->panelHome->SuspendLayout();
 			this->SuspendLayout();
@@ -269,6 +269,7 @@ private: System::Windows::Forms::Button^ btnBackMenu;
 			// 
 			this->panel2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(60)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
 				static_cast<System::Int32>(static_cast<System::Byte>(33)));
+			this->panel2->Controls->Add(this->panelMenu);
 			this->panel2->Controls->Add(this->panelOrder);
 			this->panel2->Controls->Add(this->label7);
 			this->panel2->Controls->Add(this->label6);
@@ -297,19 +298,128 @@ private: System::Windows::Forms::Button^ btnBackMenu;
 			this->panel2->TabIndex = 1;
 			this->panel2->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &Menus::panel2_Paint);
 			// 
+			// label7
+			// 
+			this->label7->AutoSize = true;
+			this->label7->BackColor = System::Drawing::Color::Transparent;
+			this->label7->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->label7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.999999F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label7->ForeColor = System::Drawing::Color::White;
+			this->label7->Location = System::Drawing::Point(934, 302);
+			this->label7->Name = L"label7";
+			this->label7->Size = System::Drawing::Size(45, 15);
+			this->label7->TabIndex = 17;
+			this->label7->Text = L"See all";
+			this->label7->Click += gcnew System::EventHandler(this, &Menus::label7_Click);
+			// 
+			// label6
+			// 
+			this->label6->AutoSize = true;
+			this->label6->BackColor = System::Drawing::Color::Transparent;
+			this->label6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label6->ForeColor = System::Drawing::Color::White;
+			this->label6->Location = System::Drawing::Point(598, 290);
+			this->label6->Name = L"label6";
+			this->label6->Size = System::Drawing::Size(165, 29);
+			this->label6->TabIndex = 16;
+			this->label6->Text = L"Cold Coffees";
+			// 
+			// lblEB
+			// 
+			this->lblEB->AutoSize = true;
+			this->lblEB->BackColor = System::Drawing::Color::Transparent;
+			this->lblEB->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->lblEB->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.999999F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->lblEB->ForeColor = System::Drawing::Color::White;
+			this->lblEB->Location = System::Drawing::Point(945, 82);
+			this->lblEB->Name = L"lblEB";
+			this->lblEB->Size = System::Drawing::Size(45, 15);
+			this->lblEB->TabIndex = 15;
+			this->lblEB->Text = L"See all";
+			this->lblEB->Click += gcnew System::EventHandler(this, &Menus::lblEB_Click_1);
+			// 
+			// label4
+			// 
+			this->label4->AutoSize = true;
+			this->label4->BackColor = System::Drawing::Color::Transparent;
+			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label4->ForeColor = System::Drawing::Color::White;
+			this->label4->Location = System::Drawing::Point(599, 68);
+			this->label4->Name = L"label4";
+			this->label4->Size = System::Drawing::Size(303, 29);
+			this->label4->TabIndex = 14;
+			this->label4->Text = L"Espresso-Based Coffees";
+			// 
+			// panelHolder9
+			// 
+			this->panelHolder9->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
+				static_cast<System::Int32>(static_cast<System::Byte>(64)));
+			this->panelHolder9->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"panelHolder9.BackgroundImage")));
+			this->panelHolder9->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->panelHolder9->Location = System::Drawing::Point(870, 341);
+			this->panelHolder9->Name = L"panelHolder9";
+			this->panelHolder9->Size = System::Drawing::Size(120, 179);
+			this->panelHolder9->TabIndex = 13;
+			// 
+			// panelHolder6
+			// 
+			this->panelHolder6->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
+				static_cast<System::Int32>(static_cast<System::Byte>(64)));
+			this->panelHolder6->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"panelHolder6.BackgroundImage")));
+			this->panelHolder6->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->panelHolder6->Location = System::Drawing::Point(870, 111);
+			this->panelHolder6->Name = L"panelHolder6";
+			this->panelHolder6->Size = System::Drawing::Size(120, 179);
+			this->panelHolder6->TabIndex = 13;
+			// 
+			// panelHolder7
+			// 
+			this->panelHolder7->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
+				static_cast<System::Int32>(static_cast<System::Byte>(64)));
+			this->panelHolder7->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"panelHolder7.BackgroundImage")));
+			this->panelHolder7->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->panelHolder7->Location = System::Drawing::Point(604, 341);
+			this->panelHolder7->Name = L"panelHolder7";
+			this->panelHolder7->Size = System::Drawing::Size(120, 179);
+			this->panelHolder7->TabIndex = 11;
+			// 
+			// panelHolder5
+			// 
+			this->panelHolder5->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
+				static_cast<System::Int32>(static_cast<System::Byte>(64)));
+			this->panelHolder5->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"panelHolder5.BackgroundImage")));
+			this->panelHolder5->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->panelHolder5->Location = System::Drawing::Point(736, 111);
+			this->panelHolder5->Name = L"panelHolder5";
+			this->panelHolder5->Size = System::Drawing::Size(120, 176);
+			this->panelHolder5->TabIndex = 12;
+			// 
+			// panelHolder4
+			// 
+			this->panelHolder4->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
+				static_cast<System::Int32>(static_cast<System::Byte>(64)));
+			this->panelHolder4->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"panelHolder4.BackgroundImage")));
+			this->panelHolder4->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->panelHolder4->Location = System::Drawing::Point(603, 111);
+			this->panelHolder4->Name = L"panelHolder4";
+			this->panelHolder4->Size = System::Drawing::Size(120, 176);
+			this->panelHolder4->TabIndex = 11;
+			// 
 			// panelOrder
 			// 
-			this->panelOrder->Controls->Add(this->panelMenu);
 			this->panelOrder->Controls->Add(this->btnReciept);
 			this->panelOrder->Controls->Add(this->btnRemove);
-			this->panelOrder->Controls->Add(this->panel4);
 			this->panelOrder->Controls->Add(this->pictureBox2);
 			this->panelOrder->Controls->Add(this->label18);
 			this->panelOrder->Controls->Add(this->panelTop1);
 			this->panelOrder->Controls->Add(this->dataGridView1);
 			this->panelOrder->Controls->Add(this->btnBackOrder);
-			this->panelOrder->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->panelOrder->Location = System::Drawing::Point(0, 0);
+			this->panelOrder->Controls->Add(this->panel4);
+			this->panelOrder->Location = System::Drawing::Point(3, 3);
 			this->panelOrder->Name = L"panelOrder";
 			this->panelOrder->Size = System::Drawing::Size(1019, 618);
 			this->panelOrder->TabIndex = 4;
@@ -320,7 +430,7 @@ private: System::Windows::Forms::Button^ btnBackMenu;
 			this->panelMenu->Controls->Add(this->btnBackMenu);
 			this->panelMenu->Controls->Add(this->panel3);
 			this->panelMenu->Controls->Add(this->panelTop);
-			this->panelMenu->Location = System::Drawing::Point(998, 578);
+			this->panelMenu->Location = System::Drawing::Point(2, 1);
 			this->panelMenu->Name = L"panelMenu";
 			this->panelMenu->Size = System::Drawing::Size(1019, 618);
 			this->panelMenu->TabIndex = 18;
@@ -361,20 +471,20 @@ private: System::Windows::Forms::Button^ btnBackMenu;
 			// label20
 			// 
 			this->label20->AutoSize = true;
-			this->label20->Font = (gcnew System::Drawing::Font(L"Rockwell", 14, System::Drawing::FontStyle::Bold));
+			this->label20->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14, System::Drawing::FontStyle::Bold));
 			this->label20->Location = System::Drawing::Point(580, 246);
 			this->label20->Name = L"label20";
-			this->label20->Size = System::Drawing::Size(96, 23);
+			this->label20->Size = System::Drawing::Size(97, 24);
 			this->label20->TabIndex = 9;
 			this->label20->Text = L"Espresso";
 			// 
 			// label13
 			// 
 			this->label13->AutoSize = true;
-			this->label13->Font = (gcnew System::Drawing::Font(L"Rockwell", 14, System::Drawing::FontStyle::Bold));
+			this->label13->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14, System::Drawing::FontStyle::Bold));
 			this->label13->Location = System::Drawing::Point(580, 138);
 			this->label13->Name = L"label13";
-			this->label13->Size = System::Drawing::Size(114, 23);
+			this->label13->Size = System::Drawing::Size(111, 24);
 			this->label13->TabIndex = 8;
 			this->label13->Text = L"Americano";
 			// 
@@ -409,10 +519,10 @@ private: System::Windows::Forms::Button^ btnBackMenu;
 			// label12
 			// 
 			this->label12->AutoSize = true;
-			this->label12->Font = (gcnew System::Drawing::Font(L"Rockwell", 14, System::Drawing::FontStyle::Bold));
+			this->label12->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14, System::Drawing::FontStyle::Bold));
 			this->label12->Location = System::Drawing::Point(151, 355);
 			this->label12->Name = L"label12";
-			this->label12->Size = System::Drawing::Size(131, 23);
+			this->label12->Size = System::Drawing::Size(123, 24);
 			this->label12->TabIndex = 5;
 			this->label12->Text = L"Vanilla Latte";
 			// 
@@ -428,10 +538,10 @@ private: System::Windows::Forms::Button^ btnBackMenu;
 			// label11
 			// 
 			this->label11->AutoSize = true;
-			this->label11->Font = (gcnew System::Drawing::Font(L"Rockwell", 14, System::Drawing::FontStyle::Bold));
+			this->label11->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14, System::Drawing::FontStyle::Bold));
 			this->label11->Location = System::Drawing::Point(151, 246);
 			this->label11->Name = L"label11";
-			this->label11->Size = System::Drawing::Size(237, 23);
+			this->label11->Size = System::Drawing::Size(232, 24);
 			this->label11->TabIndex = 4;
 			this->label11->Text = L"White Chocolate Mocha";
 			// 
@@ -447,10 +557,10 @@ private: System::Windows::Forms::Button^ btnBackMenu;
 			// label10
 			// 
 			this->label10->AutoSize = true;
-			this->label10->Font = (gcnew System::Drawing::Font(L"Rockwell", 14, System::Drawing::FontStyle::Bold));
+			this->label10->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14, System::Drawing::FontStyle::Bold));
 			this->label10->Location = System::Drawing::Point(151, 138);
 			this->label10->Name = L"label10";
-			this->label10->Size = System::Drawing::Size(96, 23);
+			this->label10->Size = System::Drawing::Size(97, 24);
 			this->label10->TabIndex = 2;
 			this->label10->Text = L"Espresso";
 			// 
@@ -513,6 +623,88 @@ private: System::Windows::Forms::Button^ btnBackMenu;
 			this->btnRemove->UseVisualStyleBackColor = false;
 			this->btnRemove->Click += gcnew System::EventHandler(this, &Menus::button3_Click);
 			// 
+			// pictureBox2
+			// 
+			this->pictureBox2->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.BackgroundImage")));
+			this->pictureBox2->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->pictureBox2->Location = System::Drawing::Point(875, 65);
+			this->pictureBox2->Name = L"pictureBox2";
+			this->pictureBox2->Size = System::Drawing::Size(96, 74);
+			this->pictureBox2->TabIndex = 8;
+			this->pictureBox2->TabStop = false;
+			// 
+			// label18
+			// 
+			this->label18->AutoSize = true;
+			this->label18->BackColor = System::Drawing::Color::Transparent;
+			this->label18->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label18->ForeColor = System::Drawing::Color::White;
+			this->label18->Location = System::Drawing::Point(455, 108);
+			this->label18->Name = L"label18";
+			this->label18->Size = System::Drawing::Size(61, 31);
+			this->label18->TabIndex = 7;
+			this->label18->Text = L"List";
+			// 
+			// panelTop1
+			// 
+			this->panelTop1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(213)), static_cast<System::Int32>(static_cast<System::Byte>(206)),
+				static_cast<System::Int32>(static_cast<System::Byte>(163)));
+			this->panelTop1->Controls->Add(this->label14);
+			this->panelTop1->Location = System::Drawing::Point(46, -72);
+			this->panelTop1->Name = L"panelTop1";
+			this->panelTop1->Size = System::Drawing::Size(228, 156);
+			this->panelTop1->TabIndex = 3;
+			// 
+			// label14
+			// 
+			this->label14->AutoSize = true;
+			this->label14->BackColor = System::Drawing::Color::Transparent;
+			this->label14->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label14->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(60)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
+				static_cast<System::Int32>(static_cast<System::Byte>(33)));
+			this->label14->Location = System::Drawing::Point(67, 108);
+			this->label14->Name = L"label14";
+			this->label14->Size = System::Drawing::Size(88, 31);
+			this->label14->TabIndex = 2;
+			this->label14->Text = L"Order";
+			// 
+			// dataGridView1
+			// 
+			this->dataGridView1->AllowUserToAddRows = false;
+			this->dataGridView1->AllowUserToDeleteRows = false;
+			this->dataGridView1->AllowUserToResizeColumns = false;
+			this->dataGridView1->AllowUserToResizeRows = false;
+			dataGridViewCellStyle1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)),
+				static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)));
+			this->dataGridView1->AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+			this->dataGridView1->BackgroundColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(213)),
+				static_cast<System::Int32>(static_cast<System::Byte>(206)), static_cast<System::Int32>(static_cast<System::Byte>(163)));
+			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dataGridView1->GridColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(213)), static_cast<System::Int32>(static_cast<System::Byte>(206)),
+				static_cast<System::Int32>(static_cast<System::Byte>(163)));
+			this->dataGridView1->Location = System::Drawing::Point(447, 145);
+			this->dataGridView1->Name = L"dataGridView1";
+			this->dataGridView1->ReadOnly = true;
+			this->dataGridView1->RowHeadersBorderStyle = System::Windows::Forms::DataGridViewHeaderBorderStyle::Single;
+			this->dataGridView1->Size = System::Drawing::Size(524, 411);
+			this->dataGridView1->TabIndex = 9;
+			// 
+			// btnBackOrder
+			// 
+			this->btnBackOrder->BackColor = System::Drawing::Color::Transparent;
+			this->btnBackOrder->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20));
+			this->btnBackOrder->ForeColor = System::Drawing::SystemColors::Control;
+			this->btnBackOrder->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			this->btnBackOrder->Location = System::Drawing::Point(979, 0);
+			this->btnBackOrder->Name = L"btnBackOrder";
+			this->btnBackOrder->Size = System::Drawing::Size(40, 40);
+			this->btnBackOrder->TabIndex = 19;
+			this->btnBackOrder->Text = L"<";
+			this->btnBackOrder->UseVisualStyleBackColor = false;
+			this->btnBackOrder->Click += gcnew System::EventHandler(this, &Menus::btnBackOrder_Click);
+			// 
 			// panel4
 			// 
 			this->panel4->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(35)), static_cast<System::Int32>(static_cast<System::Byte>(31)),
@@ -526,7 +718,7 @@ private: System::Windows::Forms::Button^ btnBackMenu;
 			this->panel4->Controls->Add(this->label17);
 			this->panel4->Controls->Add(this->label16);
 			this->panel4->Controls->Add(this->label15);
-			this->panel4->Location = System::Drawing::Point(0, 82);
+			this->panel4->Location = System::Drawing::Point(-3, -3);
 			this->panel4->Name = L"panel4";
 			this->panel4->Size = System::Drawing::Size(405, 615);
 			this->panel4->TabIndex = 5;
@@ -626,197 +818,6 @@ private: System::Windows::Forms::Button^ btnBackMenu;
 			this->label15->TabIndex = 4;
 			this->label15->Text = L"Order Setup";
 			// 
-			// pictureBox2
-			// 
-			this->pictureBox2->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.BackgroundImage")));
-			this->pictureBox2->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->pictureBox2->Location = System::Drawing::Point(875, 65);
-			this->pictureBox2->Name = L"pictureBox2";
-			this->pictureBox2->Size = System::Drawing::Size(96, 74);
-			this->pictureBox2->TabIndex = 8;
-			this->pictureBox2->TabStop = false;
-			// 
-			// label18
-			// 
-			this->label18->AutoSize = true;
-			this->label18->BackColor = System::Drawing::Color::Transparent;
-			this->label18->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label18->ForeColor = System::Drawing::Color::White;
-			this->label18->Location = System::Drawing::Point(455, 108);
-			this->label18->Name = L"label18";
-			this->label18->Size = System::Drawing::Size(61, 31);
-			this->label18->TabIndex = 7;
-			this->label18->Text = L"List";
-			// 
-			// panelTop1
-			// 
-			this->panelTop1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(213)), static_cast<System::Int32>(static_cast<System::Byte>(206)),
-				static_cast<System::Int32>(static_cast<System::Byte>(163)));
-			this->panelTop1->Controls->Add(this->label14);
-			this->panelTop1->Location = System::Drawing::Point(46, -72);
-			this->panelTop1->Name = L"panelTop1";
-			this->panelTop1->Size = System::Drawing::Size(228, 156);
-			this->panelTop1->TabIndex = 3;
-			// 
-			// label14
-			// 
-			this->label14->AutoSize = true;
-			this->label14->BackColor = System::Drawing::Color::Transparent;
-			this->label14->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label14->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(60)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
-				static_cast<System::Int32>(static_cast<System::Byte>(33)));
-			this->label14->Location = System::Drawing::Point(67, 108);
-			this->label14->Name = L"label14";
-			this->label14->Size = System::Drawing::Size(88, 31);
-			this->label14->TabIndex = 2;
-			this->label14->Text = L"Order";
-			// 
-			// dataGridView1
-			// 
-			this->dataGridView1->AllowUserToAddRows = false;
-			this->dataGridView1->AllowUserToDeleteRows = false;
-			this->dataGridView1->AllowUserToResizeColumns = false;
-			this->dataGridView1->AllowUserToResizeRows = false;
-			dataGridViewCellStyle1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)),
-				static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)));
-			this->dataGridView1->AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-			this->dataGridView1->BackgroundColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(213)),
-				static_cast<System::Int32>(static_cast<System::Byte>(206)), static_cast<System::Int32>(static_cast<System::Byte>(163)));
-			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->GridColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(213)), static_cast<System::Int32>(static_cast<System::Byte>(206)),
-				static_cast<System::Int32>(static_cast<System::Byte>(163)));
-			this->dataGridView1->Location = System::Drawing::Point(447, 145);
-			this->dataGridView1->Name = L"dataGridView1";
-			this->dataGridView1->ReadOnly = true;
-			this->dataGridView1->RowHeadersBorderStyle = System::Windows::Forms::DataGridViewHeaderBorderStyle::Single;
-			this->dataGridView1->Size = System::Drawing::Size(524, 411);
-			this->dataGridView1->TabIndex = 9;
-			// 
-			// btnBackOrder
-			// 
-			this->btnBackOrder->BackColor = System::Drawing::Color::Transparent;
-			this->btnBackOrder->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20));
-			this->btnBackOrder->ForeColor = System::Drawing::SystemColors::Control;
-			this->btnBackOrder->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			this->btnBackOrder->Location = System::Drawing::Point(979, 0);
-			this->btnBackOrder->Name = L"btnBackOrder";
-			this->btnBackOrder->Size = System::Drawing::Size(40, 40);
-			this->btnBackOrder->TabIndex = 19;
-			this->btnBackOrder->Text = L"<";
-			this->btnBackOrder->UseVisualStyleBackColor = false;
-			this->btnBackOrder->Click += gcnew System::EventHandler(this, &Menus::btnBackOrder_Click);
-			// 
-			// label7
-			// 
-			this->label7->AutoSize = true;
-			this->label7->BackColor = System::Drawing::Color::Transparent;
-			this->label7->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->label7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.999999F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label7->ForeColor = System::Drawing::Color::White;
-			this->label7->Location = System::Drawing::Point(934, 302);
-			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(45, 15);
-			this->label7->TabIndex = 17;
-			this->label7->Text = L"See all";
-			// 
-			// label6
-			// 
-			this->label6->AutoSize = true;
-			this->label6->BackColor = System::Drawing::Color::Transparent;
-			this->label6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label6->ForeColor = System::Drawing::Color::White;
-			this->label6->Location = System::Drawing::Point(598, 290);
-			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(165, 29);
-			this->label6->TabIndex = 16;
-			this->label6->Text = L"Cold Coffees";
-			// 
-			// lblEB
-			// 
-			this->lblEB->AutoSize = true;
-			this->lblEB->BackColor = System::Drawing::Color::Transparent;
-			this->lblEB->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->lblEB->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.999999F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->lblEB->ForeColor = System::Drawing::Color::White;
-			this->lblEB->Location = System::Drawing::Point(945, 82);
-			this->lblEB->Name = L"lblEB";
-			this->lblEB->Size = System::Drawing::Size(45, 15);
-			this->lblEB->TabIndex = 15;
-			this->lblEB->Text = L"See all";
-			// 
-			// label4
-			// 
-			this->label4->AutoSize = true;
-			this->label4->BackColor = System::Drawing::Color::Transparent;
-			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label4->ForeColor = System::Drawing::Color::White;
-			this->label4->Location = System::Drawing::Point(599, 68);
-			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(303, 29);
-			this->label4->TabIndex = 14;
-			this->label4->Text = L"Espresso-Based Coffees";
-			// 
-			// panelHolder9
-			// 
-			this->panelHolder9->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
-				static_cast<System::Int32>(static_cast<System::Byte>(64)));
-			this->panelHolder9->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"panelHolder9.BackgroundImage")));
-			this->panelHolder9->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->panelHolder9->Location = System::Drawing::Point(870, 341);
-			this->panelHolder9->Name = L"panelHolder9";
-			this->panelHolder9->Size = System::Drawing::Size(120, 179);
-			this->panelHolder9->TabIndex = 13;
-			// 
-			// panelHolder6
-			// 
-			this->panelHolder6->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
-				static_cast<System::Int32>(static_cast<System::Byte>(64)));
-			this->panelHolder6->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"panelHolder6.BackgroundImage")));
-			this->panelHolder6->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->panelHolder6->Location = System::Drawing::Point(870, 111);
-			this->panelHolder6->Name = L"panelHolder6";
-			this->panelHolder6->Size = System::Drawing::Size(120, 179);
-			this->panelHolder6->TabIndex = 13;
-			// 
-			// panelHolder7
-			// 
-			this->panelHolder7->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
-				static_cast<System::Int32>(static_cast<System::Byte>(64)));
-			this->panelHolder7->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"panelHolder7.BackgroundImage")));
-			this->panelHolder7->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->panelHolder7->Location = System::Drawing::Point(604, 341);
-			this->panelHolder7->Name = L"panelHolder7";
-			this->panelHolder7->Size = System::Drawing::Size(120, 179);
-			this->panelHolder7->TabIndex = 11;
-			// 
-			// panelHolder5
-			// 
-			this->panelHolder5->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
-				static_cast<System::Int32>(static_cast<System::Byte>(64)));
-			this->panelHolder5->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"panelHolder5.BackgroundImage")));
-			this->panelHolder5->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->panelHolder5->Location = System::Drawing::Point(736, 111);
-			this->panelHolder5->Name = L"panelHolder5";
-			this->panelHolder5->Size = System::Drawing::Size(120, 176);
-			this->panelHolder5->TabIndex = 12;
-			// 
-			// panelHolder4
-			// 
-			this->panelHolder4->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
-				static_cast<System::Int32>(static_cast<System::Byte>(64)));
-			this->panelHolder4->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"panelHolder4.BackgroundImage")));
-			this->panelHolder4->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->panelHolder4->Location = System::Drawing::Point(603, 111);
-			this->panelHolder4->Name = L"panelHolder4";
-			this->panelHolder4->Size = System::Drawing::Size(120, 176);
-			this->panelHolder4->TabIndex = 11;
-			// 
 			// panelHolder3
 			// 
 			this->panelHolder3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
@@ -864,6 +865,7 @@ private: System::Windows::Forms::Button^ btnBackMenu;
 			this->lblSee->Size = System::Drawing::Size(45, 15);
 			this->lblSee->TabIndex = 8;
 			this->lblSee->Text = L"See all";
+			this->lblSee->Click += gcnew System::EventHandler(this, &Menus::lblSee_Click);
 			// 
 			// label3
 			// 
@@ -1005,12 +1007,12 @@ private: System::Windows::Forms::Button^ btnBackMenu;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->EndInit();
 			this->panelTop->ResumeLayout(false);
 			this->panelTop->PerformLayout();
-			this->panel4->ResumeLayout(false);
-			this->panel4->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
 			this->panelTop1->ResumeLayout(false);
 			this->panelTop1->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
+			this->panel4->ResumeLayout(false);
+			this->panel4->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->panelHome->ResumeLayout(false);
 			this->panelHome->PerformLayout();
@@ -1194,6 +1196,18 @@ private: System::Void btnReciept_Click(System::Object^ sender, System::EventArgs
 
 	// Display the total or use it as needed
 	MessageBox::Show("Sum of Prices: " + total);
+}
+private: System::Void lblSee_Click(System::Object^ sender, System::EventArgs^ e) {
+	panelHome->Hide();
+	panelMenu->Show();
+}
+private: System::Void lblEB_Click_1(System::Object^ sender, System::EventArgs^ e) {
+	panelHome->Hide();
+	panelMenu->Show();
+}
+private: System::Void label7_Click(System::Object^ sender, System::EventArgs^ e) {
+	panelHome->Hide();
+	panelMenu->Show();
 }
 };
 }
