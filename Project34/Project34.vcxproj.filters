@@ -24,6 +24,12 @@
     <ClCompile Include="Menus.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
+    <ClCompile Include="Menufc.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuEB.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyForm.h">
@@ -39,6 +45,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Custom.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Menufc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuEB.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
