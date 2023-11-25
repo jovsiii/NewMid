@@ -141,6 +141,7 @@ private: System::Windows::Forms::Button^ btnPrint;
 private: System::Windows::Forms::Panel^ panel1;
 private: System::Windows::Forms::Label^ label5;
 private: System::Windows::Forms::Button^ button1;
+private: System::Windows::Forms::Button^ button2;
 
 
 
@@ -206,6 +207,7 @@ private: System::Windows::Forms::Button^ button1;
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
 			this->panelOrder = (gcnew System::Windows::Forms::Panel());
 			this->panelReciept = (gcnew System::Windows::Forms::Panel());
+			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->label5 = (gcnew System::Windows::Forms::Label());
@@ -339,6 +341,7 @@ private: System::Windows::Forms::Button^ button1;
 			// 
 			// panelReciept
 			// 
+			this->panelReciept->Controls->Add(this->button2);
 			this->panelReciept->Controls->Add(this->button1);
 			this->panelReciept->Controls->Add(this->panel1);
 			this->panelReciept->Controls->Add(this->btnPrint);
@@ -349,13 +352,23 @@ private: System::Windows::Forms::Button^ button1;
 			this->panelReciept->Size = System::Drawing::Size(1019, 618);
 			this->panelReciept->TabIndex = 20;
 			// 
+			// button2
+			// 
+			this->button2->Location = System::Drawing::Point(337, 566);
+			this->button2->Name = L"button2";
+			this->button2->Size = System::Drawing::Size(75, 23);
+			this->button2->TabIndex = 5;
+			this->button2->Text = L"Back";
+			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &Menus::button2_Click_1);
+			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(961, 11);
+			this->button1->Location = System::Drawing::Point(963, 3);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(53, 43);
 			this->button1->TabIndex = 4;
-			this->button1->Text = L"button1";
+			this->button1->Text = L"New";
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &Menus::button1_Click);
 			// 
@@ -377,15 +390,15 @@ private: System::Windows::Forms::Button^ button1;
 				static_cast<System::Byte>(0)));
 			this->label5->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(60)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
 				static_cast<System::Int32>(static_cast<System::Byte>(33)));
-			this->label5->Location = System::Drawing::Point(64, 105);
+			this->label5->Location = System::Drawing::Point(46, 101);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(85, 31);
+			this->label5->Size = System::Drawing::Size(114, 31);
 			this->label5->TabIndex = 2;
-			this->label5->Text = L"Menu";
+			this->label5->Text = L"Reciept";
 			// 
 			// btnPrint
 			// 
-			this->btnPrint->Location = System::Drawing::Point(461, 569);
+			this->btnPrint->Location = System::Drawing::Point(595, 570);
 			this->btnPrint->Name = L"btnPrint";
 			this->btnPrint->Size = System::Drawing::Size(75, 23);
 			this->btnPrint->TabIndex = 1;
@@ -395,7 +408,7 @@ private: System::Windows::Forms::Button^ button1;
 			// 
 			// richTextBox1
 			// 
-			this->richTextBox1->Location = System::Drawing::Point(337, 74);
+			this->richTextBox1->Location = System::Drawing::Point(349, 65);
 			this->richTextBox1->Name = L"richTextBox1";
 			this->richTextBox1->Size = System::Drawing::Size(333, 474);
 			this->richTextBox1->TabIndex = 0;
@@ -1262,7 +1275,7 @@ private: System::Windows::Forms::Button^ button1;
 	//GUI COMPONENTS
 	private: System::Void Menus_Load(System::Object^ sender, System::EventArgs^ e) {
 		panelMenu->Hide();
-		array<Panel^>^ panels = gcnew array<Panel^>{ panelHolder1, panelHolder2, panelHolder3, panelHolder4, panelHolder5, panelHolder6, panelHolder7, panelHolder8 , panelHolder9};
+		array<Panel^>^ panels = gcnew array<Panel^>{ panelHolder1, panelHolder2, panelHolder3, panelHolder4, panelHolder5, panelHolder6, panelHolder7, panelHolder8 , panelHolder9, panel1};
 		for each (Panel ^ panel in panels) {
 			Rounded::RoundCorners(panel, 20);
 		}
@@ -1277,6 +1290,10 @@ private: System::Windows::Forms::Button^ button1;
 	}
 
 private: System::Void btnReciept_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (dataGridView1->Rows->Count < 1) {
+		MessageBox::Show("No items in the DataGridView. Please add items before generating a receipt.");
+		return; // Stop further execution if there is no data
+	}
 	int columnIndex = 3; // Change this to the correct column index
 
 	int total = 0;
@@ -1359,9 +1376,16 @@ private: System::Void btnReciept_Click(System::Object^ sender, System::EventArgs
 
 
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-	
+	richTextBox1->Clear();
+	dataGridView1->Rows->Clear();
 	panelReciept->Hide();
+	panelOrder->Hide();
 	panel2->Show();
+}
+private: System::Void button2_Click_1(System::Object^ sender, System::EventArgs^ e) {
+	panelReciept->Hide();
+	panelOrder->Show();
+
 }
 };
 }
