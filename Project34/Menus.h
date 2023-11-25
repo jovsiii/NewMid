@@ -2,6 +2,7 @@
 #include"Custom.h"
 #include"MenuFC.h"
 #include"MenuEB.h"
+
 namespace Project34 {
 
 	using namespace System;
@@ -23,6 +24,7 @@ namespace Project34 {
 			InitializeComponent();
 			panelOrder->Hide();
 			panelMenu->Hide();
+			panelReciept->Hide();
 		
 			//
 			//TODO: Add the constructor code here
@@ -38,7 +40,9 @@ namespace Project34 {
 
 			// Set DataGridView dimensions
 			dataGridView1->AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode::Fill;
-		
+			printDocument1 = gcnew System::Drawing::Printing::PrintDocument();
+			printDocument1->PrintPage += gcnew System::Drawing::Printing::PrintPageEventHandler(this, &Menus::printDocument1_);
+			printPreviewDialog1->Document = printDocument1;
 			
 		}
 
@@ -88,11 +92,6 @@ namespace Project34 {
 	private: System::Windows::Forms::Panel^ panelOrder;
 
 
-
-
-
-
-
 	private: System::Windows::Forms::Panel^ panelTop1;
 
 
@@ -134,6 +133,17 @@ private: System::Windows::Forms::PictureBox^ pictureBox3;
 private: System::Windows::Forms::DataGridView^ dataGridView1;
 private: System::Windows::Forms::Button^ btnBackOrder;
 private: System::Windows::Forms::Button^ btnBackMenu;
+private: System::Windows::Forms::Panel^ panelReciept;
+private: System::Windows::Forms::RichTextBox^ richTextBox1;
+private: System::Drawing::Printing::PrintDocument^ printDocument1;
+private: System::Windows::Forms::PrintPreviewDialog^ printPreviewDialog1;
+private: System::Windows::Forms::Button^ btnPrint;
+private: System::Windows::Forms::Panel^ panel1;
+private: System::Windows::Forms::Label^ label5;
+private: System::Windows::Forms::Button^ button1;
+
+
+
 
 
 
@@ -194,6 +204,14 @@ private: System::Windows::Forms::Button^ btnBackMenu;
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Menus::typeid));
 			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle2 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
+			this->panelOrder = (gcnew System::Windows::Forms::Panel());
+			this->panelReciept = (gcnew System::Windows::Forms::Panel());
+			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->label5 = (gcnew System::Windows::Forms::Label());
+			this->btnPrint = (gcnew System::Windows::Forms::Button());
+			this->richTextBox1 = (gcnew System::Windows::Forms::RichTextBox());
+			this->btnReciept = (gcnew System::Windows::Forms::Button());
 			this->panelMenu = (gcnew System::Windows::Forms::Panel());
 			this->btnBackMenu = (gcnew System::Windows::Forms::Button());
 			this->panel3 = (gcnew System::Windows::Forms::Panel());
@@ -210,8 +228,6 @@ private: System::Windows::Forms::Button^ btnBackMenu;
 			this->pictureBox4 = (gcnew System::Windows::Forms::PictureBox());
 			this->panelTop = (gcnew System::Windows::Forms::Panel());
 			this->label8 = (gcnew System::Windows::Forms::Label());
-			this->panelOrder = (gcnew System::Windows::Forms::Panel());
-			this->btnReciept = (gcnew System::Windows::Forms::Button());
 			this->btnRemove = (gcnew System::Windows::Forms::Button());
 			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
 			this->label18 = (gcnew System::Windows::Forms::Label());
@@ -251,7 +267,12 @@ private: System::Windows::Forms::Button^ btnBackMenu;
 			this->lblHome = (gcnew System::Windows::Forms::Label());
 			this->btnOrder = (gcnew System::Windows::Forms::Button());
 			this->panelHolder8 = (gcnew System::Windows::Forms::Panel());
+			this->printDocument1 = (gcnew System::Drawing::Printing::PrintDocument());
+			this->printPreviewDialog1 = (gcnew System::Windows::Forms::PrintPreviewDialog());
 			this->panel2->SuspendLayout();
+			this->panelOrder->SuspendLayout();
+			this->panelReciept->SuspendLayout();
+			this->panel1->SuspendLayout();
 			this->panelMenu->SuspendLayout();
 			this->panel3->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
@@ -260,7 +281,6 @@ private: System::Windows::Forms::Button^ btnBackMenu;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->BeginInit();
 			this->panelTop->SuspendLayout();
-			this->panelOrder->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			this->panelTop1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
@@ -273,7 +293,6 @@ private: System::Windows::Forms::Button^ btnBackMenu;
 			// 
 			this->panel2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(60)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
 				static_cast<System::Int32>(static_cast<System::Byte>(33)));
-			this->panel2->Controls->Add(this->panelMenu);
 			this->panel2->Controls->Add(this->panelOrder);
 			this->panel2->Controls->Add(this->label7);
 			this->panel2->Controls->Add(this->label6);
@@ -301,12 +320,106 @@ private: System::Windows::Forms::Button^ btnBackMenu;
 			this->panel2->Size = System::Drawing::Size(1019, 618);
 			this->panel2->TabIndex = 1;
 			// 
+			// panelOrder
+			// 
+			this->panelOrder->Controls->Add(this->panelReciept);
+			this->panelOrder->Controls->Add(this->btnReciept);
+			this->panelOrder->Controls->Add(this->panelMenu);
+			this->panelOrder->Controls->Add(this->btnRemove);
+			this->panelOrder->Controls->Add(this->pictureBox2);
+			this->panelOrder->Controls->Add(this->label18);
+			this->panelOrder->Controls->Add(this->panelTop1);
+			this->panelOrder->Controls->Add(this->dataGridView1);
+			this->panelOrder->Controls->Add(this->btnBackOrder);
+			this->panelOrder->Controls->Add(this->panel4);
+			this->panelOrder->Location = System::Drawing::Point(3, 3);
+			this->panelOrder->Name = L"panelOrder";
+			this->panelOrder->Size = System::Drawing::Size(1019, 618);
+			this->panelOrder->TabIndex = 4;
+			// 
+			// panelReciept
+			// 
+			this->panelReciept->Controls->Add(this->button1);
+			this->panelReciept->Controls->Add(this->panel1);
+			this->panelReciept->Controls->Add(this->btnPrint);
+			this->panelReciept->Controls->Add(this->richTextBox1);
+			this->panelReciept->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->panelReciept->Location = System::Drawing::Point(0, 0);
+			this->panelReciept->Name = L"panelReciept";
+			this->panelReciept->Size = System::Drawing::Size(1019, 618);
+			this->panelReciept->TabIndex = 20;
+			// 
+			// button1
+			// 
+			this->button1->Location = System::Drawing::Point(961, 11);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(53, 43);
+			this->button1->TabIndex = 4;
+			this->button1->Text = L"button1";
+			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &Menus::button1_Click);
+			// 
+			// panel1
+			// 
+			this->panel1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(213)), static_cast<System::Int32>(static_cast<System::Byte>(206)),
+				static_cast<System::Int32>(static_cast<System::Byte>(163)));
+			this->panel1->Controls->Add(this->label5);
+			this->panel1->Location = System::Drawing::Point(46, -78);
+			this->panel1->Name = L"panel1";
+			this->panel1->Size = System::Drawing::Size(228, 156);
+			this->panel1->TabIndex = 3;
+			// 
+			// label5
+			// 
+			this->label5->AutoSize = true;
+			this->label5->BackColor = System::Drawing::Color::Transparent;
+			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label5->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(60)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
+				static_cast<System::Int32>(static_cast<System::Byte>(33)));
+			this->label5->Location = System::Drawing::Point(64, 105);
+			this->label5->Name = L"label5";
+			this->label5->Size = System::Drawing::Size(85, 31);
+			this->label5->TabIndex = 2;
+			this->label5->Text = L"Menu";
+			// 
+			// btnPrint
+			// 
+			this->btnPrint->Location = System::Drawing::Point(461, 569);
+			this->btnPrint->Name = L"btnPrint";
+			this->btnPrint->Size = System::Drawing::Size(75, 23);
+			this->btnPrint->TabIndex = 1;
+			this->btnPrint->Text = L"Print";
+			this->btnPrint->UseVisualStyleBackColor = true;
+			this->btnPrint->Click += gcnew System::EventHandler(this, &Menus::btnPrint_Click);
+			// 
+			// richTextBox1
+			// 
+			this->richTextBox1->Location = System::Drawing::Point(337, 74);
+			this->richTextBox1->Name = L"richTextBox1";
+			this->richTextBox1->Size = System::Drawing::Size(333, 474);
+			this->richTextBox1->TabIndex = 0;
+			this->richTextBox1->Text = L"";
+			// 
+			// btnReciept
+			// 
+			this->btnReciept->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(213)), static_cast<System::Int32>(static_cast<System::Byte>(206)),
+				static_cast<System::Int32>(static_cast<System::Byte>(163)));
+			this->btnReciept->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
+			this->btnReciept->Location = System::Drawing::Point(883, 562);
+			this->btnReciept->Name = L"btnReciept";
+			this->btnReciept->Size = System::Drawing::Size(88, 38);
+			this->btnReciept->TabIndex = 14;
+			this->btnReciept->Text = L"Reciept";
+			this->btnReciept->UseVisualStyleBackColor = false;
+			this->btnReciept->Click += gcnew System::EventHandler(this, &Menus::btnReciept_Click);
+			// 
 			// panelMenu
 			// 
 			this->panelMenu->Controls->Add(this->btnBackMenu);
 			this->panelMenu->Controls->Add(this->panel3);
 			this->panelMenu->Controls->Add(this->panelTop);
-			this->panelMenu->Location = System::Drawing::Point(2, 1);
+			this->panelMenu->Location = System::Drawing::Point(578, 587);
 			this->panelMenu->Name = L"panelMenu";
 			this->panelMenu->Size = System::Drawing::Size(1019, 618);
 			this->panelMenu->TabIndex = 18;
@@ -472,34 +585,6 @@ private: System::Windows::Forms::Button^ btnBackMenu;
 			this->label8->Size = System::Drawing::Size(85, 31);
 			this->label8->TabIndex = 2;
 			this->label8->Text = L"Menu";
-			// 
-			// panelOrder
-			// 
-			this->panelOrder->Controls->Add(this->btnReciept);
-			this->panelOrder->Controls->Add(this->btnRemove);
-			this->panelOrder->Controls->Add(this->pictureBox2);
-			this->panelOrder->Controls->Add(this->label18);
-			this->panelOrder->Controls->Add(this->panelTop1);
-			this->panelOrder->Controls->Add(this->dataGridView1);
-			this->panelOrder->Controls->Add(this->btnBackOrder);
-			this->panelOrder->Controls->Add(this->panel4);
-			this->panelOrder->Location = System::Drawing::Point(3, 3);
-			this->panelOrder->Name = L"panelOrder";
-			this->panelOrder->Size = System::Drawing::Size(1019, 618);
-			this->panelOrder->TabIndex = 4;
-			// 
-			// btnReciept
-			// 
-			this->btnReciept->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(213)), static_cast<System::Int32>(static_cast<System::Byte>(206)),
-				static_cast<System::Int32>(static_cast<System::Byte>(163)));
-			this->btnReciept->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
-			this->btnReciept->Location = System::Drawing::Point(883, 562);
-			this->btnReciept->Name = L"btnReciept";
-			this->btnReciept->Size = System::Drawing::Size(88, 38);
-			this->btnReciept->TabIndex = 14;
-			this->btnReciept->Text = L"Reciept";
-			this->btnReciept->UseVisualStyleBackColor = false;
-			this->btnReciept->Click += gcnew System::EventHandler(this, &Menus::btnReciept_Click);
 			// 
 			// btnRemove
 			// 
@@ -980,6 +1065,21 @@ private: System::Windows::Forms::Button^ btnBackMenu;
 			this->panelHolder8->Size = System::Drawing::Size(120, 179);
 			this->panelHolder8->TabIndex = 11;
 			// 
+			// printDocument1
+			// 
+			this->printDocument1->PrintPage += gcnew System::Drawing::Printing::PrintPageEventHandler(this, &Menus::printDocument1_);
+			// 
+			// printPreviewDialog1
+			// 
+			this->printPreviewDialog1->AutoScrollMargin = System::Drawing::Size(0, 0);
+			this->printPreviewDialog1->AutoScrollMinSize = System::Drawing::Size(0, 0);
+			this->printPreviewDialog1->ClientSize = System::Drawing::Size(400, 300);
+			this->printPreviewDialog1->Document = this->printDocument1;
+			this->printPreviewDialog1->Enabled = true;
+			this->printPreviewDialog1->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"printPreviewDialog1.Icon")));
+			this->printPreviewDialog1->Name = L"printPreviewDialog1";
+			this->printPreviewDialog1->Visible = false;
+			// 
 			// Menus
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -994,6 +1094,11 @@ private: System::Windows::Forms::Button^ btnBackMenu;
 			this->Load += gcnew System::EventHandler(this, &Menus::Menus_Load);
 			this->panel2->ResumeLayout(false);
 			this->panel2->PerformLayout();
+			this->panelOrder->ResumeLayout(false);
+			this->panelOrder->PerformLayout();
+			this->panelReciept->ResumeLayout(false);
+			this->panel1->ResumeLayout(false);
+			this->panel1->PerformLayout();
 			this->panelMenu->ResumeLayout(false);
 			this->panel3->ResumeLayout(false);
 			this->panel3->PerformLayout();
@@ -1004,8 +1109,6 @@ private: System::Windows::Forms::Button^ btnBackMenu;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->EndInit();
 			this->panelTop->ResumeLayout(false);
 			this->panelTop->PerformLayout();
-			this->panelOrder->ResumeLayout(false);
-			this->panelOrder->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
 			this->panelTop1->ResumeLayout(false);
 			this->panelTop1->PerformLayout();
@@ -1019,6 +1122,73 @@ private: System::Windows::Forms::Button^ btnBackMenu;
 
 		}
 #pragma endregion
+		private: void DisplayAllItemsInRichTextBox() {
+			int columnIndex = 3; // Change this to the correct column index
+
+			int total = 0;
+
+			for each (DataGridViewRow ^ row in dataGridView1->Rows) {
+				// Check if the row is not empty (avoiding the new row at the bottom)
+				if (row->IsNewRow) continue;
+
+				// Get the value in the specified column
+				Object^ value = row->Cells[columnIndex]->Value;
+
+				// Check if the value is not null and is convertible to an integer
+				if (value != nullptr) {
+					total += Convert::ToInt32(value);
+				}
+			}
+
+			// Get the current date and time
+			DateTime currentDateTime = DateTime::Now;
+
+			// Format the date and time as a string
+			String^ formattedDateTime = currentDateTime.ToString("yyyy-MM-dd HH:mm:ss");
+
+			// Initialize a RichTextBox to hold the formatted values
+			richTextBox1->Clear();  // Assuming you have a RichTextBox named richTextBox1
+
+			// Add a header to the receipt with the current date and time
+			richTextBox1->AppendText("=====================================================" + Environment::NewLine);
+			richTextBox1->AppendText("                             RECEIPT (" + formattedDateTime + ")        " + Environment::NewLine);
+			richTextBox1->AppendText("=====================================================" + Environment::NewLine);
+
+			// Display column names with centered text
+			for each (DataGridViewColumn ^ column in dataGridView1->Columns) {
+				int padding = (20 - column->HeaderText->Length) / 2;
+				richTextBox1->AppendText(String::Format("{0," + padding + "}{1," + (20 - padding) + "}", "", column->HeaderText));
+			}
+			richTextBox1->AppendText(Environment::NewLine);
+
+			// Iterate through each row in the DataGridView
+			for each (DataGridViewRow ^ row in dataGridView1->Rows) {
+				// Skip the new row at the bottom of the DataGridView
+				if (row->IsNewRow) continue;
+
+				// Iterate through each cell in the row
+				for each (DataGridViewCell ^ cell in row->Cells) {
+					// Check if the cell value is not null
+					if (cell->Value != nullptr) {
+						// Append the cell value to the RichTextBox with centered formatting
+						int padding = (20 - cell->Value->ToString()->Length) / 2;
+						richTextBox1->AppendText(String::Format("{0," + padding + "}{1," + (22 - padding) + "}", "", cell->Value->ToString()));
+					}
+					else {
+						// Append an empty string if the cell value is null
+						richTextBox1->AppendText(String::Format("{20,-40}", " - "));
+					}
+				}
+
+				// Add a newline after each row
+				richTextBox1->AppendText(Environment::NewLine);
+			}
+
+			// Add a footer to the receipt
+			richTextBox1->AppendText("======================================================" + Environment::NewLine);
+			richTextBox1->AppendText("                                                                                 TOTAL:  " + total + Environment::NewLine);
+		}
+
 	//Fills the combobox
 	   private: void fill() {
 		comboBox1->Items->Clear();
@@ -1089,8 +1259,7 @@ private: System::Windows::Forms::Button^ btnBackMenu;
 		}
 	}
 
-
-		//GUI COMPONENTS
+	//GUI COMPONENTS
 	private: System::Void Menus_Load(System::Object^ sender, System::EventArgs^ e) {
 		panelMenu->Hide();
 		array<Panel^>^ panels = gcnew array<Panel^>{ panelHolder1, panelHolder2, panelHolder3, panelHolder4, panelHolder5, panelHolder6, panelHolder7, panelHolder8 , panelHolder9};
@@ -1106,6 +1275,7 @@ private: System::Windows::Forms::Button^ btnBackMenu;
 			ButtonStyler::CurveButton(button, 20);
 		}
 	}
+
 private: System::Void btnReciept_Click(System::Object^ sender, System::EventArgs^ e) {
 	int columnIndex = 3; // Change this to the correct column index
 
@@ -1123,9 +1293,10 @@ private: System::Void btnReciept_Click(System::Object^ sender, System::EventArgs
 			total += Convert::ToInt32(value);
 		}
 	}
+	panelReciept->Show();
+	DisplayAllItemsInRichTextBox();
+	
 
-	// Display the total or use it as needed
-	MessageBox::Show("Sum of Prices: " + total);
 }
 
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -1135,47 +1306,62 @@ private: System::Void btnReciept_Click(System::Object^ sender, System::EventArgs
 		deleter();
 	}
 
-private:
-	System::Void btnOrder_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void btnOrder_Click(System::Object^ sender, System::EventArgs^ e) {
 		panelOrder->Show();
 	}
 
-private:
-	System::Void lblEB_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void lblEB_Click(System::Object^ sender, System::EventArgs^ e) {
 		panel2->Hide();
-
 	}
 
-private:
-	System::Void btnBackOrder_Click(System::Object^ sender, System::EventArgs^ e) {
+	private:System::Void btnBackOrder_Click(System::Object^ sender, System::EventArgs^ e) {
 		panelOrder->Hide();
 		panel2->Show();
 	}
 
-private:
-	System::Void btnBackMenu_Click(System::Object^ sender, System::EventArgs^ e) {
+	private:System::Void btnBackMenu_Click(System::Object^ sender, System::EventArgs^ e) {
 		panelMenu->Hide();
 		panel2->Show();
 	}
 
 
-private: System::Void lblSee_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void lblSee_Click(System::Object^ sender, System::EventArgs^ e) {
 	
 	panelMenu->Show();
-}
-private: System::Void lblEB_Click_1(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void lblEB_Click_1(System::Object^ sender, System::EventArgs^ e) {
 	Menufc^ menufc = gcnew Menufc();
 	menufc->Show();
 	
-}
-private: System::Void label7_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void label7_Click(System::Object^ sender, System::EventArgs^ e) {
 
 	MenuEB^ menueb = gcnew MenuEB();
 	menueb->Show();
-}
-private: System::Void panelfc_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
-	
+	}
 
+	private: System::Void printDocument1_(System::Object^ sender, System::Drawing::Printing::PrintPageEventArgs^ e) {
+		System::Drawing::Font^ fntString = gcnew System::Drawing::Font("Times New Roman", 18, FontStyle::Regular);
+		e->Graphics->DrawString(richTextBox1->Text, fntString, Brushes::Black, 120, 120);
+
+	
+	}
+
+	private: System::Void btnPrint_Click(System::Object^ sender, System::EventArgs^ e) {
+	try {
+		printPreviewDialog1->ShowDialog();
+	}
+	catch (Exception^ ex) {
+		MessageBox::Show("Exception Type: " + ex->GetType()->Name + "\nMessage: " + ex->Message);
+
+	}
+}
+
+
+private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+	
+	panelReciept->Hide();
+	panel2->Show();
 }
 };
 }
