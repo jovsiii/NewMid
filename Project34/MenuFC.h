@@ -92,8 +92,8 @@ namespace Project34 {
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Menufc::typeid));
 			this->panelMenu = (gcnew System::Windows::Forms::Panel());
-			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
 			this->btnBFC = (gcnew System::Windows::Forms::Button());
+			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
 			this->panel3 = (gcnew System::Windows::Forms::Panel());
 			this->panelTop = (gcnew System::Windows::Forms::Panel());
 			this->label8 = (gcnew System::Windows::Forms::Label());
@@ -118,16 +118,6 @@ namespace Project34 {
 			this->panelMenu->Size = System::Drawing::Size(1019, 618);
 			this->panelMenu->TabIndex = 19;
 			// 
-			// pictureBox2
-			// 
-			this->pictureBox2->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.BackgroundImage")));
-			this->pictureBox2->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->pictureBox2->Location = System::Drawing::Point(872, 40);
-			this->pictureBox2->Name = L"pictureBox2";
-			this->pictureBox2->Size = System::Drawing::Size(85, 60);
-			this->pictureBox2->TabIndex = 25;
-			this->pictureBox2->TabStop = false;
-			// 
 			// btnBFC
 			// 
 			this->btnBFC->BackColor = System::Drawing::Color::Transparent;
@@ -141,6 +131,16 @@ namespace Project34 {
 			this->btnBFC->UseVisualStyleBackColor = false;
 			this->btnBFC->Click += gcnew System::EventHandler(this, &Menufc::btnBFC_Click_1);
 			// 
+			// pictureBox2
+			// 
+			this->pictureBox2->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.BackgroundImage")));
+			this->pictureBox2->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->pictureBox2->Location = System::Drawing::Point(859, 40);
+			this->pictureBox2->Name = L"pictureBox2";
+			this->pictureBox2->Size = System::Drawing::Size(89, 65);
+			this->pictureBox2->TabIndex = 25;
+			this->pictureBox2->TabStop = false;
+			// 
 			// panel3
 			// 
 			this->panel3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(213)), static_cast<System::Int32>(static_cast<System::Byte>(206)),
@@ -148,7 +148,7 @@ namespace Project34 {
 			this->panel3->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"panel3.BackgroundImage")));
 			this->panel3->Location = System::Drawing::Point(3, 111);
 			this->panel3->Name = L"panel3";
-			this->panel3->Size = System::Drawing::Size(1016, 507);
+			this->panel3->Size = System::Drawing::Size(1043, 507);
 			this->panel3->TabIndex = 3;
 			// 
 			// panelTop

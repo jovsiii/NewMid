@@ -154,6 +154,7 @@ private: System::Windows::Forms::Button^ button2;
 private: System::Windows::Forms::PictureBox^ pictureBox2;
 private: System::Windows::Forms::Button^ button3;
 private: System::Windows::Forms::PictureBox^ pictureBox3;
+private: System::Windows::Forms::Button^ button4;
 
 
 
@@ -219,6 +220,7 @@ private: System::Windows::Forms::PictureBox^ pictureBox3;
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Menus::typeid));
 			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle2 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
+			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->panelOrder = (gcnew System::Windows::Forms::Panel());
 			this->panelReciept = (gcnew System::Windows::Forms::Panel());
 			this->button3 = (gcnew System::Windows::Forms::Button());
@@ -310,10 +312,25 @@ private: System::Windows::Forms::PictureBox^ pictureBox3;
 			this->panel2->Controls->Add(this->panelHome);
 			this->panel2->Controls->Add(this->btnOrder);
 			this->panel2->Controls->Add(this->panelHolder8);
+			this->panel2->Controls->Add(this->button4);
 			this->panel2->Location = System::Drawing::Point(-1, -1);
 			this->panel2->Name = L"panel2";
 			this->panel2->Size = System::Drawing::Size(1018, 618);
 			this->panel2->TabIndex = 1;
+			// 
+			// button4
+			// 
+			this->button4->BackColor = System::Drawing::Color::Transparent;
+			this->button4->Font = (gcnew System::Drawing::Font(L"Rockwell Extra Bold", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button4->ForeColor = System::Drawing::SystemColors::Control;
+			this->button4->Location = System::Drawing::Point(970, 0);
+			this->button4->Name = L"button4";
+			this->button4->Size = System::Drawing::Size(48, 43);
+			this->button4->TabIndex = 18;
+			this->button4->Text = L"X";
+			this->button4->UseVisualStyleBackColor = false;
+			this->button4->Click += gcnew System::EventHandler(this, &Menus::button4_Click_2);
 			// 
 			// panelOrder
 			// 
@@ -686,7 +703,7 @@ private: System::Windows::Forms::PictureBox^ pictureBox3;
 			this->lblCC->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.999999F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->lblCC->ForeColor = System::Drawing::Color::White;
-			this->lblCC->Location = System::Drawing::Point(934, 302);
+			this->lblCC->Location = System::Drawing::Point(945, 312);
 			this->lblCC->Name = L"lblCC";
 			this->lblCC->Size = System::Drawing::Size(45, 15);
 			this->lblCC->TabIndex = 17;
@@ -700,7 +717,7 @@ private: System::Windows::Forms::PictureBox^ pictureBox3;
 			this->label6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label6->ForeColor = System::Drawing::Color::White;
-			this->label6->Location = System::Drawing::Point(598, 290);
+			this->label6->Location = System::Drawing::Point(599, 302);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(165, 29);
 			this->label6->TabIndex = 16;
@@ -728,7 +745,7 @@ private: System::Windows::Forms::PictureBox^ pictureBox3;
 			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label4->ForeColor = System::Drawing::Color::White;
-			this->label4->Location = System::Drawing::Point(599, 68);
+			this->label4->Location = System::Drawing::Point(599, 72);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(303, 29);
 			this->label4->TabIndex = 14;
@@ -844,7 +861,7 @@ private: System::Windows::Forms::PictureBox^ pictureBox3;
 			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label3->ForeColor = System::Drawing::Color::White;
-			this->label3->Location = System::Drawing::Point(45, 355);
+			this->label3->Location = System::Drawing::Point(45, 365);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(213, 29);
 			this->label3->TabIndex = 7;
@@ -1118,6 +1135,10 @@ private: System::Void btnSeeMenu_Click(System::Object^ sender, System::EventArgs
 	panelOrder->Hide();
 }
 private: System::Void button4_Click_1(System::Object^ sender, System::EventArgs^ e) {
+	this->Close();
+}
+
+private: System::Void button4_Click_2(System::Object^ sender, System::EventArgs^ e) {
 	this->Close();
 }
 };

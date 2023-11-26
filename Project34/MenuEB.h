@@ -74,12 +74,12 @@ namespace Project34 {
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MenuEB::typeid));
 			this->panelMenu = (gcnew System::Windows::Forms::Panel());
+			this->btnBEB = (gcnew System::Windows::Forms::Button());
 			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
 			this->panel3 = (gcnew System::Windows::Forms::Panel());
 			this->panelTop = (gcnew System::Windows::Forms::Panel());
 			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->label9 = (gcnew System::Windows::Forms::Label());
-			this->btnBEB = (gcnew System::Windows::Forms::Button());
 			this->panelMenu->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			this->panelTop->SuspendLayout();
@@ -100,13 +100,26 @@ namespace Project34 {
 			this->panelMenu->Size = System::Drawing::Size(1019, 618);
 			this->panelMenu->TabIndex = 20;
 			// 
+			// btnBEB
+			// 
+			this->btnBEB->BackColor = System::Drawing::Color::Transparent;
+			this->btnBEB->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20));
+			this->btnBEB->ForeColor = System::Drawing::SystemColors::Control;
+			this->btnBEB->Location = System::Drawing::Point(979, 0);
+			this->btnBEB->Name = L"btnBEB";
+			this->btnBEB->Size = System::Drawing::Size(40, 40);
+			this->btnBEB->TabIndex = 21;
+			this->btnBEB->Text = L"<";
+			this->btnBEB->UseVisualStyleBackColor = false;
+			this->btnBEB->Click += gcnew System::EventHandler(this, &MenuEB::btnBEB_Click);
+			// 
 			// pictureBox2
 			// 
 			this->pictureBox2->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.BackgroundImage")));
 			this->pictureBox2->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->pictureBox2->Location = System::Drawing::Point(870, 40);
+			this->pictureBox2->Location = System::Drawing::Point(865, 40);
 			this->pictureBox2->Name = L"pictureBox2";
-			this->pictureBox2->Size = System::Drawing::Size(85, 60);
+			this->pictureBox2->Size = System::Drawing::Size(91, 65);
 			this->pictureBox2->TabIndex = 25;
 			this->pictureBox2->TabStop = false;
 			// 
@@ -117,7 +130,7 @@ namespace Project34 {
 			this->panel3->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"panel3.BackgroundImage")));
 			this->panel3->Location = System::Drawing::Point(0, 111);
 			this->panel3->Name = L"panel3";
-			this->panel3->Size = System::Drawing::Size(1019, 504);
+			this->panel3->Size = System::Drawing::Size(1097, 504);
 			this->panel3->TabIndex = 3;
 			// 
 			// panelTop
@@ -155,19 +168,6 @@ namespace Project34 {
 			this->label9->TabIndex = 0;
 			this->label9->Text = L"Espresso-Based Coffees";
 			// 
-			// btnBEB
-			// 
-			this->btnBEB->BackColor = System::Drawing::Color::Transparent;
-			this->btnBEB->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20));
-			this->btnBEB->ForeColor = System::Drawing::SystemColors::Control;
-			this->btnBEB->Location = System::Drawing::Point(979, 0);
-			this->btnBEB->Name = L"btnBEB";
-			this->btnBEB->Size = System::Drawing::Size(40, 40);
-			this->btnBEB->TabIndex = 21;
-			this->btnBEB->Text = L"<";
-			this->btnBEB->UseVisualStyleBackColor = false;
-			this->btnBEB->Click += gcnew System::EventHandler(this, &MenuEB::btnBEB_Click);
-			// 
 			// MenuEB
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -192,5 +192,6 @@ namespace Project34 {
 	private: System::Void btnBEB_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->Hide();
 	}
+
 };
 }

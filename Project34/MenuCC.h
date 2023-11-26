@@ -55,6 +55,8 @@ namespace Project34 {
 
 
 
+
+
 	private:
 		/// <summary>
 		/// Required designer variable.
@@ -90,7 +92,6 @@ namespace Project34 {
 			this->panelMenu->Controls->Add(this->panel3);
 			this->panelMenu->Controls->Add(this->panelTop);
 			this->panelMenu->Controls->Add(this->label9);
-			this->panelMenu->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->panelMenu->Location = System::Drawing::Point(0, 0);
 			this->panelMenu->Name = L"panelMenu";
 			this->panelMenu->Size = System::Drawing::Size(1019, 618);
@@ -158,9 +159,9 @@ namespace Project34 {
 			// 
 			this->pictureBox2->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.BackgroundImage")));
 			this->pictureBox2->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->pictureBox2->Location = System::Drawing::Point(872, 40);
+			this->pictureBox2->Location = System::Drawing::Point(865, 40);
 			this->pictureBox2->Name = L"pictureBox2";
-			this->pictureBox2->Size = System::Drawing::Size(85, 60);
+			this->pictureBox2->Size = System::Drawing::Size(93, 65);
 			this->pictureBox2->TabIndex = 26;
 			this->pictureBox2->TabStop = false;
 			// 
