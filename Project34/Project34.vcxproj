@@ -133,6 +133,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="MenuCC.cpp" />
     <ClCompile Include="MenuEB.cpp" />
     <ClCompile Include="Menufc.cpp" />
     <ClCompile Include="Menus.cpp" />
@@ -142,6 +143,9 @@
   <ItemGroup>
     <ClInclude Include="Custom.h" />
     <ClInclude Include="Filehandling.h" />
+    <ClInclude Include="MenuCC.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="MenuEB.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -159,6 +163,9 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="MenuCC.resx">
+      <DependentUpon>MenuCC.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MenuEB.resx">
       <DependentUpon>MenuEB.h</DependentUpon>
     </EmbeddedResource>

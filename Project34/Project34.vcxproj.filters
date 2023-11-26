@@ -30,6 +30,9 @@
     <ClCompile Include="MenuEB.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
+    <ClCompile Include="MenuCC.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyForm.h">
@@ -51,6 +54,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MenuEB.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuCC.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
