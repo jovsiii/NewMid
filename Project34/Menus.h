@@ -218,9 +218,8 @@ private: System::Windows::Forms::Button^ button4;
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Menus::typeid));
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle2 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle1 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
-			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->panelOrder = (gcnew System::Windows::Forms::Panel());
 			this->panelReciept = (gcnew System::Windows::Forms::Panel());
 			this->button3 = (gcnew System::Windows::Forms::Button());
@@ -271,6 +270,7 @@ private: System::Windows::Forms::Button^ button4;
 			this->lblHome = (gcnew System::Windows::Forms::Label());
 			this->btnOrder = (gcnew System::Windows::Forms::Button());
 			this->panelHolder8 = (gcnew System::Windows::Forms::Panel());
+			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->printDocument1 = (gcnew System::Drawing::Printing::PrintDocument());
 			this->printPreviewDialog1 = (gcnew System::Windows::Forms::PrintPreviewDialog());
 			this->panel2->SuspendLayout();
@@ -317,20 +317,6 @@ private: System::Windows::Forms::Button^ button4;
 			this->panel2->Name = L"panel2";
 			this->panel2->Size = System::Drawing::Size(1018, 618);
 			this->panel2->TabIndex = 1;
-			// 
-			// button4
-			// 
-			this->button4->BackColor = System::Drawing::Color::Transparent;
-			this->button4->Font = (gcnew System::Drawing::Font(L"Rockwell Extra Bold", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->button4->ForeColor = System::Drawing::SystemColors::Control;
-			this->button4->Location = System::Drawing::Point(970, 0);
-			this->button4->Name = L"button4";
-			this->button4->Size = System::Drawing::Size(48, 43);
-			this->button4->TabIndex = 18;
-			this->button4->Text = L"X";
-			this->button4->UseVisualStyleBackColor = false;
-			this->button4->Click += gcnew System::EventHandler(this, &Menus::button4_Click_2);
 			// 
 			// panelOrder
 			// 
@@ -534,9 +520,9 @@ private: System::Windows::Forms::Button^ button4;
 			this->dataGridView1->AllowUserToDeleteRows = false;
 			this->dataGridView1->AllowUserToResizeColumns = false;
 			this->dataGridView1->AllowUserToResizeRows = false;
-			dataGridViewCellStyle2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)),
+			dataGridViewCellStyle1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)),
 				static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)));
-			this->dataGridView1->AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+			this->dataGridView1->AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
 			this->dataGridView1->BackgroundColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(213)),
 				static_cast<System::Int32>(static_cast<System::Byte>(206)), static_cast<System::Int32>(static_cast<System::Byte>(163)));
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
@@ -598,9 +584,10 @@ private: System::Windows::Forms::Button^ button4;
 			this->label19->ForeColor = System::Drawing::Color::White;
 			this->label19->Location = System::Drawing::Point(38, 252);
 			this->label19->Name = L"label19";
-			this->label19->Size = System::Drawing::Size(48, 19);
+			this->label19->RightToLeft = System::Windows::Forms::RightToLeft::No;
+			this->label19->Size = System::Drawing::Size(61, 19);
 			this->label19->TabIndex = 12;
-			this->label19->Text = L"Size:";
+			this->label19->Text = L"Price: ";
 			// 
 			// comboBox2
 			// 
@@ -966,6 +953,20 @@ private: System::Windows::Forms::Button^ button4;
 			this->panelHolder8->Name = L"panelHolder8";
 			this->panelHolder8->Size = System::Drawing::Size(120, 179);
 			this->panelHolder8->TabIndex = 11;
+			// 
+			// button4
+			// 
+			this->button4->BackColor = System::Drawing::Color::Transparent;
+			this->button4->Font = (gcnew System::Drawing::Font(L"Rockwell Extra Bold", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button4->ForeColor = System::Drawing::SystemColors::Control;
+			this->button4->Location = System::Drawing::Point(970, 0);
+			this->button4->Name = L"button4";
+			this->button4->Size = System::Drawing::Size(48, 43);
+			this->button4->TabIndex = 18;
+			this->button4->Text = L"X";
+			this->button4->UseVisualStyleBackColor = false;
+			this->button4->Click += gcnew System::EventHandler(this, &Menus::button4_Click_2);
 			// 
 			// printDocument1
 			// 
