@@ -140,7 +140,7 @@ namespace Project34 {
 
 
 private: System::Windows::Forms::DataGridView^ dataGridView1;
-private: System::Windows::Forms::Button^ btnBackOrder;
+
 
 private: System::Windows::Forms::Panel^ panelReciept;
 private: System::Windows::Forms::RichTextBox^ richTextBox1;
@@ -149,12 +149,16 @@ private: System::Windows::Forms::PrintPreviewDialog^ printPreviewDialog1;
 private: System::Windows::Forms::Button^ btnPrint;
 private: System::Windows::Forms::Panel^ panel1;
 private: System::Windows::Forms::Label^ label5;
-private: System::Windows::Forms::Button^ button1;
+
 private: System::Windows::Forms::Button^ button2;
 private: System::Windows::Forms::PictureBox^ pictureBox2;
-private: System::Windows::Forms::Button^ button3;
+
 private: System::Windows::Forms::PictureBox^ pictureBox3;
-private: System::Windows::Forms::Button^ button4;
+private: System::Windows::Forms::PictureBox^ pictureBox4;
+private: System::Windows::Forms::PictureBox^ pictureBox5;
+private: System::Windows::Forms::PictureBox^ pictureBox6;
+private: System::Windows::Forms::PictureBox^ pictureBox7;
+
 
 
 
@@ -218,13 +222,13 @@ private: System::Windows::Forms::Button^ button4;
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Menus::typeid));
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle1 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle2 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
 			this->panelOrder = (gcnew System::Windows::Forms::Panel());
 			this->panelReciept = (gcnew System::Windows::Forms::Panel());
-			this->button3 = (gcnew System::Windows::Forms::Button());
+			this->pictureBox7 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox6 = (gcnew System::Windows::Forms::PictureBox());
 			this->button2 = (gcnew System::Windows::Forms::Button());
-			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->btnPrint = (gcnew System::Windows::Forms::Button());
@@ -236,7 +240,6 @@ private: System::Windows::Forms::Button^ button4;
 			this->panelTop1 = (gcnew System::Windows::Forms::Panel());
 			this->label14 = (gcnew System::Windows::Forms::Label());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
-			this->btnBackOrder = (gcnew System::Windows::Forms::Button());
 			this->panel4 = (gcnew System::Windows::Forms::Panel());
 			this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
 			this->label19 = (gcnew System::Windows::Forms::Label());
@@ -248,6 +251,7 @@ private: System::Windows::Forms::Button^ button4;
 			this->label17 = (gcnew System::Windows::Forms::Label());
 			this->label16 = (gcnew System::Windows::Forms::Label());
 			this->label15 = (gcnew System::Windows::Forms::Label());
+			this->pictureBox5 = (gcnew System::Windows::Forms::PictureBox());
 			this->lblCC = (gcnew System::Windows::Forms::Label());
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->lblEB = (gcnew System::Windows::Forms::Label());
@@ -270,20 +274,24 @@ private: System::Windows::Forms::Button^ button4;
 			this->lblHome = (gcnew System::Windows::Forms::Label());
 			this->btnOrder = (gcnew System::Windows::Forms::Button());
 			this->panelHolder8 = (gcnew System::Windows::Forms::Panel());
-			this->button4 = (gcnew System::Windows::Forms::Button());
+			this->pictureBox4 = (gcnew System::Windows::Forms::PictureBox());
 			this->printDocument1 = (gcnew System::Drawing::Printing::PrintDocument());
 			this->printPreviewDialog1 = (gcnew System::Windows::Forms::PrintPreviewDialog());
 			this->panel2->SuspendLayout();
 			this->panelOrder->SuspendLayout();
 			this->panelReciept->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox7))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox6))->BeginInit();
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			this->panelTop1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->panel4->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->panelHome->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// panel2
@@ -312,7 +320,7 @@ private: System::Windows::Forms::Button^ button4;
 			this->panel2->Controls->Add(this->panelHome);
 			this->panel2->Controls->Add(this->btnOrder);
 			this->panel2->Controls->Add(this->panelHolder8);
-			this->panel2->Controls->Add(this->button4);
+			this->panel2->Controls->Add(this->pictureBox4);
 			this->panel2->Location = System::Drawing::Point(-1, -1);
 			this->panel2->Name = L"panel2";
 			this->panel2->Size = System::Drawing::Size(1018, 618);
@@ -327,19 +335,18 @@ private: System::Windows::Forms::Button^ button4;
 			this->panelOrder->Controls->Add(this->label18);
 			this->panelOrder->Controls->Add(this->panelTop1);
 			this->panelOrder->Controls->Add(this->dataGridView1);
-			this->panelOrder->Controls->Add(this->btnBackOrder);
 			this->panelOrder->Controls->Add(this->panel4);
-			this->panelOrder->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->panelOrder->Location = System::Drawing::Point(0, 0);
+			this->panelOrder->Controls->Add(this->pictureBox5);
+			this->panelOrder->Location = System::Drawing::Point(3, 3);
 			this->panelOrder->Name = L"panelOrder";
 			this->panelOrder->Size = System::Drawing::Size(1018, 618);
 			this->panelOrder->TabIndex = 4;
 			// 
 			// panelReciept
 			// 
-			this->panelReciept->Controls->Add(this->button3);
+			this->panelReciept->Controls->Add(this->pictureBox7);
+			this->panelReciept->Controls->Add(this->pictureBox6);
 			this->panelReciept->Controls->Add(this->button2);
-			this->panelReciept->Controls->Add(this->button1);
 			this->panelReciept->Controls->Add(this->panel1);
 			this->panelReciept->Controls->Add(this->btnPrint);
 			this->panelReciept->Controls->Add(this->richTextBox1);
@@ -349,19 +356,25 @@ private: System::Windows::Forms::Button^ button4;
 			this->panelReciept->Size = System::Drawing::Size(1018, 618);
 			this->panelReciept->TabIndex = 20;
 			// 
-			// button3
+			// pictureBox7
 			// 
-			this->button3->BackColor = System::Drawing::Color::Transparent;
-			this->button3->Font = (gcnew System::Drawing::Font(L"Rockwell Extra Bold", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->button3->ForeColor = System::Drawing::SystemColors::Control;
-			this->button3->Location = System::Drawing::Point(970, 0);
-			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(48, 43);
-			this->button3->TabIndex = 6;
-			this->button3->Text = L"X";
-			this->button3->UseVisualStyleBackColor = false;
-			this->button3->Click += gcnew System::EventHandler(this, &Menus::button3_Click_1);
+			this->pictureBox7->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox7.BackgroundImage")));
+			this->pictureBox7->Location = System::Drawing::Point(959, 3);
+			this->pictureBox7->Name = L"pictureBox7";
+			this->pictureBox7->Size = System::Drawing::Size(30, 30);
+			this->pictureBox7->TabIndex = 19;
+			this->pictureBox7->TabStop = false;
+			this->pictureBox7->Click += gcnew System::EventHandler(this, &Menus::pictureBox7_Click);
+			// 
+			// pictureBox6
+			// 
+			this->pictureBox6->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox6.BackgroundImage")));
+			this->pictureBox6->ImeMode = System::Windows::Forms::ImeMode::NoControl;
+			this->pictureBox6->Location = System::Drawing::Point(985, 0);
+			this->pictureBox6->Name = L"pictureBox6";
+			this->pictureBox6->Size = System::Drawing::Size(30, 41);
+			this->pictureBox6->TabIndex = 18;
+			this->pictureBox6->TabStop = false;
 			// 
 			// button2
 			// 
@@ -376,20 +389,6 @@ private: System::Windows::Forms::Button^ button4;
 			this->button2->Text = L"Back";
 			this->button2->UseVisualStyleBackColor = false;
 			this->button2->Click += gcnew System::EventHandler(this, &Menus::button2_Click_1);
-			// 
-			// button1
-			// 
-			this->button1->BackColor = System::Drawing::Color::Transparent;
-			this->button1->Font = (gcnew System::Drawing::Font(L"Rockwell", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->button1->ForeColor = System::Drawing::SystemColors::Control;
-			this->button1->Location = System::Drawing::Point(870, 0);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(101, 43);
-			this->button1->TabIndex = 4;
-			this->button1->Text = L"Main menu";
-			this->button1->UseVisualStyleBackColor = false;
-			this->button1->Click += gcnew System::EventHandler(this, &Menus::button1_Click);
 			// 
 			// panel1
 			// 
@@ -413,7 +412,7 @@ private: System::Windows::Forms::Button^ button4;
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(114, 31);
 			this->label5->TabIndex = 2;
-			this->label5->Text = L"Reciept";
+			this->label5->Text = L"Receipt";
 			// 
 			// btnPrint
 			// 
@@ -520,9 +519,9 @@ private: System::Windows::Forms::Button^ button4;
 			this->dataGridView1->AllowUserToDeleteRows = false;
 			this->dataGridView1->AllowUserToResizeColumns = false;
 			this->dataGridView1->AllowUserToResizeRows = false;
-			dataGridViewCellStyle1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)),
+			dataGridViewCellStyle2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)),
 				static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)));
-			this->dataGridView1->AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+			this->dataGridView1->AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
 			this->dataGridView1->BackgroundColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(213)),
 				static_cast<System::Int32>(static_cast<System::Byte>(206)), static_cast<System::Int32>(static_cast<System::Byte>(163)));
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
@@ -534,20 +533,6 @@ private: System::Windows::Forms::Button^ button4;
 			this->dataGridView1->RowHeadersBorderStyle = System::Windows::Forms::DataGridViewHeaderBorderStyle::Single;
 			this->dataGridView1->Size = System::Drawing::Size(524, 411);
 			this->dataGridView1->TabIndex = 9;
-			// 
-			// btnBackOrder
-			// 
-			this->btnBackOrder->BackColor = System::Drawing::Color::Transparent;
-			this->btnBackOrder->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20));
-			this->btnBackOrder->ForeColor = System::Drawing::SystemColors::Control;
-			this->btnBackOrder->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			this->btnBackOrder->Location = System::Drawing::Point(978, 0);
-			this->btnBackOrder->Name = L"btnBackOrder";
-			this->btnBackOrder->Size = System::Drawing::Size(40, 40);
-			this->btnBackOrder->TabIndex = 19;
-			this->btnBackOrder->Text = L"<";
-			this->btnBackOrder->UseVisualStyleBackColor = false;
-			this->btnBackOrder->Click += gcnew System::EventHandler(this, &Menus::btnBackOrder_Click);
 			// 
 			// panel4
 			// 
@@ -681,6 +666,16 @@ private: System::Windows::Forms::Button^ button4;
 			this->label15->Size = System::Drawing::Size(172, 31);
 			this->label15->TabIndex = 4;
 			this->label15->Text = L"Order Setup";
+			// 
+			// pictureBox5
+			// 
+			this->pictureBox5->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox5.BackgroundImage")));
+			this->pictureBox5->Location = System::Drawing::Point(981, -3);
+			this->pictureBox5->Name = L"pictureBox5";
+			this->pictureBox5->Size = System::Drawing::Size(37, 38);
+			this->pictureBox5->TabIndex = 21;
+			this->pictureBox5->TabStop = false;
+			this->pictureBox5->Click += gcnew System::EventHandler(this, &Menus::pictureBox5_Click);
 			// 
 			// lblCC
 			// 
@@ -954,19 +949,16 @@ private: System::Windows::Forms::Button^ button4;
 			this->panelHolder8->Size = System::Drawing::Size(120, 179);
 			this->panelHolder8->TabIndex = 11;
 			// 
-			// button4
+			// pictureBox4
 			// 
-			this->button4->BackColor = System::Drawing::Color::Transparent;
-			this->button4->Font = (gcnew System::Drawing::Font(L"Rockwell Extra Bold", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->button4->ForeColor = System::Drawing::SystemColors::Control;
-			this->button4->Location = System::Drawing::Point(970, 0);
-			this->button4->Name = L"button4";
-			this->button4->Size = System::Drawing::Size(48, 43);
-			this->button4->TabIndex = 18;
-			this->button4->Text = L"X";
-			this->button4->UseVisualStyleBackColor = false;
-			this->button4->Click += gcnew System::EventHandler(this, &Menus::button4_Click_2);
+			this->pictureBox4->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox4.BackgroundImage")));
+			this->pictureBox4->ImeMode = System::Windows::Forms::ImeMode::NoControl;
+			this->pictureBox4->Location = System::Drawing::Point(988, 0);
+			this->pictureBox4->Name = L"pictureBox4";
+			this->pictureBox4->Size = System::Drawing::Size(30, 36);
+			this->pictureBox4->TabIndex = 18;
+			this->pictureBox4->TabStop = false;
+			this->pictureBox4->Click += gcnew System::EventHandler(this, &Menus::pictureBox4_Click);
 			// 
 			// printDocument1
 			// 
@@ -1000,6 +992,8 @@ private: System::Windows::Forms::Button^ button4;
 			this->panelOrder->ResumeLayout(false);
 			this->panelOrder->PerformLayout();
 			this->panelReciept->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox7))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox6))->EndInit();
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
@@ -1009,9 +1003,11 @@ private: System::Windows::Forms::Button^ button4;
 			this->panel4->ResumeLayout(false);
 			this->panel4->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->panelHome->ResumeLayout(false);
 			this->panelHome->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->EndInit();
 			this->ResumeLayout(false);
 
 		}
@@ -1141,6 +1137,23 @@ private: System::Void button4_Click_1(System::Object^ sender, System::EventArgs^
 
 private: System::Void button4_Click_2(System::Object^ sender, System::EventArgs^ e) {
 	this->Close();
+}
+private: System::Void pictureBox4_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->Close();
+}
+private: System::Void pictureBox5_Click(System::Object^ sender, System::EventArgs^ e) {
+	richTextBox1->Clear();
+	dataGridView1->Rows->Clear();
+	panelOrder->Hide();
+	panel2->Show();
+}
+
+private: System::Void pictureBox7_Click(System::Object^ sender, System::EventArgs^ e) {
+	richTextBox1->Clear();
+	dataGridView1->Rows->Clear();
+	panelReciept->Hide();
+	panelOrder->Hide();
+	panel2->Show();
 }
 };
 }

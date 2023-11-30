@@ -2,6 +2,7 @@
 
 #include"Filehandling.h"
 #include"MyForm1.h"
+#include"MyForm.h"
 namespace Project34 {
 
 	using namespace System;
@@ -66,10 +67,11 @@ namespace Project34 {
 	private: System::Windows::Forms::Label^ label5;
 	private: System::Windows::Forms::Panel^ panel1;
 
-	private: System::Windows::Forms::Button^ button1;
+
 	private: System::Windows::Forms::Label^ label6;
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Label^ label2;
+	private: System::Windows::Forms::PictureBox^ pictureBox1;
 
 
 
@@ -103,8 +105,9 @@ namespace Project34 {
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->panel1->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// lblUser
@@ -209,14 +212,12 @@ namespace Project34 {
 			resources->ApplyResources(this->label2, L"label2");
 			this->label2->Name = L"label2";
 			// 
-			// button1
+			// pictureBox1
 			// 
-			this->button1->BackColor = System::Drawing::Color::Transparent;
-			resources->ApplyResources(this->button1, L"button1");
-			this->button1->ForeColor = System::Drawing::SystemColors::Control;
-			this->button1->Name = L"button1";
-			this->button1->UseVisualStyleBackColor = false;
-			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click_1);
+			resources->ApplyResources(this->pictureBox1, L"pictureBox1");
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->TabStop = false;
+			this->pictureBox1->Click += gcnew System::EventHandler(this, &MyForm::pictureBox1_Click);
 			// 
 			// MyForm
 			// 
@@ -224,7 +225,7 @@ namespace Project34 {
 			resources->ApplyResources(this, L"$this");
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::ControlText;
-			this->Controls->Add(this->button1);
+			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->label5);
 			this->Controls->Add(this->label4);
@@ -233,9 +234,9 @@ namespace Project34 {
 			this->MaximizeBox = false;
 			this->Name = L"MyForm";
 			this->ShowInTaskbar = false;
-			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 
 		}
@@ -251,10 +252,9 @@ namespace Project34 {
 	private: System::Void textBox2_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void btnSignin_Click(System::Object^ sender, System::EventArgs^ e) {
-	Login::login(txtboxUser, txtBoxPass);	
-	
-	}
+		Login::login(txtboxUser, txtBoxPass);
 
+	}
 	private: System::Void Signup_Click(System::Object^ sender, System::EventArgs^ e) {
 		Signup->ForeColor = System::Drawing::Color::Red;
 
@@ -270,7 +270,8 @@ namespace Project34 {
 private: System::Void button1_Click_1(System::Object^ sender, System::EventArgs^ e) {
 	this->Close();
 }
-private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
+private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->Close();
 }
 };
 }

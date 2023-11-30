@@ -53,9 +53,10 @@ namespace Project34 {
 
 	private: System::Windows::Forms::Panel^ panelTop;
 	private: System::Windows::Forms::Label^ label8;
-	private: System::Windows::Forms::Button^ btnBFC;
+
 
 	private: System::Windows::Forms::PictureBox^ pictureBox2;
+	private: System::Windows::Forms::PictureBox^ pictureBox1;
 
 
 	protected:
@@ -92,22 +93,23 @@ namespace Project34 {
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Menufc::typeid));
 			this->panelMenu = (gcnew System::Windows::Forms::Panel());
-			this->btnBFC = (gcnew System::Windows::Forms::Button());
 			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
 			this->panel3 = (gcnew System::Windows::Forms::Panel());
 			this->panelTop = (gcnew System::Windows::Forms::Panel());
 			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->label9 = (gcnew System::Windows::Forms::Label());
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->panelMenu->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			this->panelTop->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// panelMenu
 			// 
 			this->panelMenu->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(60)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
 				static_cast<System::Int32>(static_cast<System::Byte>(33)));
-			this->panelMenu->Controls->Add(this->btnBFC);
+			this->panelMenu->Controls->Add(this->pictureBox1);
 			this->panelMenu->Controls->Add(this->pictureBox2);
 			this->panelMenu->Controls->Add(this->panel3);
 			this->panelMenu->Controls->Add(this->panelTop);
@@ -117,19 +119,6 @@ namespace Project34 {
 			this->panelMenu->Name = L"panelMenu";
 			this->panelMenu->Size = System::Drawing::Size(1019, 618);
 			this->panelMenu->TabIndex = 19;
-			// 
-			// btnBFC
-			// 
-			this->btnBFC->BackColor = System::Drawing::Color::Transparent;
-			this->btnBFC->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20));
-			this->btnBFC->ForeColor = System::Drawing::SystemColors::Control;
-			this->btnBFC->Location = System::Drawing::Point(979, 0);
-			this->btnBFC->Name = L"btnBFC";
-			this->btnBFC->Size = System::Drawing::Size(40, 40);
-			this->btnBFC->TabIndex = 21;
-			this->btnBFC->Text = L"<";
-			this->btnBFC->UseVisualStyleBackColor = false;
-			this->btnBFC->Click += gcnew System::EventHandler(this, &Menufc::btnBFC_Click_1);
 			// 
 			// pictureBox2
 			// 
@@ -186,6 +175,16 @@ namespace Project34 {
 			this->label9->TabIndex = 0;
 			this->label9->Text = L"Flavored Coffees";
 			// 
+			// pictureBox1
+			// 
+			this->pictureBox1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.BackgroundImage")));
+			this->pictureBox1->Location = System::Drawing::Point(982, 0);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(37, 38);
+			this->pictureBox1->TabIndex = 1;
+			this->pictureBox1->TabStop = false;
+			this->pictureBox1->Click += gcnew System::EventHandler(this, &Menufc::pictureBox1_Click);
+			// 
 			// Menufc
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -201,6 +200,7 @@ namespace Project34 {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
 			this->panelTop->ResumeLayout(false);
 			this->panelTop->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 
 		}
@@ -214,6 +214,9 @@ namespace Project34 {
 private: System::Void btnBFC_Click_1(System::Object^ sender, System::EventArgs^ e) {
 		this->Hide();
 
+}
+private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->Close();
 }
 };
 }
