@@ -3,6 +3,7 @@
 #include"Filehandling.h"
 #include"MyForm1.h"
 #include"MyForm.h"
+#include"Menus.h"
 namespace Project34 {
 
 	using namespace System;
@@ -70,7 +71,7 @@ namespace Project34 {
 
 	private: System::Windows::Forms::Label^ label6;
 	private: System::Windows::Forms::Label^ label3;
-	private: System::Windows::Forms::Label^ label2;
+
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
 
 
@@ -104,7 +105,6 @@ namespace Project34 {
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
-			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
@@ -116,7 +116,7 @@ namespace Project34 {
 			resources->ApplyResources(this->lblUser, L"lblUser");
 			this->lblUser->ForeColor = System::Drawing::SystemColors::Desktop;
 			this->lblUser->Name = L"lblUser";
-			this->lblUser->Click += gcnew System::EventHandler(this, &MyForm::lblUser_Click);
+
 			// 
 			// lblPass
 			// 
@@ -128,6 +128,7 @@ namespace Project34 {
 			// txtboxUser
 			// 
 			this->txtboxUser->BackColor = System::Drawing::SystemColors::Control;
+			this->txtboxUser->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			resources->ApplyResources(this->txtboxUser, L"txtboxUser");
 			this->txtboxUser->ForeColor = System::Drawing::SystemColors::ControlText;
 			this->txtboxUser->Name = L"txtboxUser";
@@ -135,17 +136,24 @@ namespace Project34 {
 			// txtBoxPass
 			// 
 			this->txtBoxPass->BackColor = System::Drawing::SystemColors::Control;
+			this->txtBoxPass->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			resources->ApplyResources(this->txtBoxPass, L"txtBoxPass");
 			this->txtBoxPass->ForeColor = System::Drawing::SystemColors::ControlText;
 			this->txtBoxPass->Name = L"txtBoxPass";
-			this->txtBoxPass->TextChanged += gcnew System::EventHandler(this, &MyForm::textBox2_TextChanged);
+			
 			// 
 			// btnSignin
 			// 
-			this->btnSignin->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(128)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
-				static_cast<System::Int32>(static_cast<System::Byte>(0)));
+			this->btnSignin->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(213)), static_cast<System::Int32>(static_cast<System::Byte>(206)),
+				static_cast<System::Int32>(static_cast<System::Byte>(163)));
+			this->btnSignin->FlatAppearance->BorderColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(213)),
+				static_cast<System::Int32>(static_cast<System::Byte>(206)), static_cast<System::Int32>(static_cast<System::Byte>(163)));
+			this->btnSignin->FlatAppearance->MouseDownBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(60)),
+				static_cast<System::Int32>(static_cast<System::Byte>(42)), static_cast<System::Int32>(static_cast<System::Byte>(33)));
+			this->btnSignin->FlatAppearance->MouseOverBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(60)),
+				static_cast<System::Int32>(static_cast<System::Byte>(42)), static_cast<System::Int32>(static_cast<System::Byte>(33)));
 			resources->ApplyResources(this->btnSignin, L"btnSignin");
-			this->btnSignin->ForeColor = System::Drawing::SystemColors::ControlText;
+			this->btnSignin->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->btnSignin->Name = L"btnSignin";
 			this->btnSignin->UseVisualStyleBackColor = false;
 			this->btnSignin->Click += gcnew System::EventHandler(this, &MyForm::btnSignin_Click);
@@ -154,7 +162,7 @@ namespace Project34 {
 			// 
 			resources->ApplyResources(this->Signup, L"Signup");
 			this->Signup->BackColor = System::Drawing::Color::Transparent;
-			this->Signup->ForeColor = System::Drawing::SystemColors::Highlight;
+			this->Signup->ForeColor = System::Drawing::SystemColors::ControlText;
 			this->Signup->Name = L"Signup";
 			this->Signup->Click += gcnew System::EventHandler(this, &MyForm::Signup_Click);
 			// 
@@ -185,7 +193,6 @@ namespace Project34 {
 				static_cast<System::Int32>(static_cast<System::Byte>(203)));
 			this->panel1->Controls->Add(this->label6);
 			this->panel1->Controls->Add(this->label3);
-			this->panel1->Controls->Add(this->label2);
 			this->panel1->Controls->Add(this->label1);
 			this->panel1->Controls->Add(this->lblUser);
 			this->panel1->Controls->Add(this->txtboxUser);
@@ -207,11 +214,6 @@ namespace Project34 {
 			resources->ApplyResources(this->label3, L"label3");
 			this->label3->Name = L"label3";
 			// 
-			// label2
-			// 
-			resources->ApplyResources(this->label2, L"label2");
-			this->label2->Name = L"label2";
-			// 
 			// pictureBox1
 			// 
 			resources->ApplyResources(this->pictureBox1, L"pictureBox1");
@@ -221,7 +223,7 @@ namespace Project34 {
 			// 
 			// MyForm
 			// 
-			this->AllowDrop = true;
+			this->AcceptButton = this->btnSignin;
 			resources->ApplyResources(this, L"$this");
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::ControlText;
@@ -231,9 +233,9 @@ namespace Project34 {
 			this->Controls->Add(this->label4);
 			this->ForeColor = System::Drawing::SystemColors::Control;
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
-			this->MaximizeBox = false;
+			this->HelpButton = true;
 			this->Name = L"MyForm";
-			this->ShowInTaskbar = false;
+			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
@@ -241,22 +243,17 @@ namespace Project34 {
 
 		}
 #pragma endregion
-		
-	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-		this->Close(); 
-
-	}
-
-	private: System::Void lblUser_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void textBox2_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-	}
+	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
+		Rounded::CurveButton(btnSignin, 20);
+		}
 	private: System::Void btnSignin_Click(System::Object^ sender, System::EventArgs^ e) {
-		Login::login(txtboxUser, txtBoxPass);
-
+		if (Login::login(txtboxUser, txtBoxPass)) {
+			this->Hide();
+		}
+		
 	}
+
 	private: System::Void Signup_Click(System::Object^ sender, System::EventArgs^ e) {
-		Signup->ForeColor = System::Drawing::Color::Red;
 
 		MyForm1^ signup = gcnew MyForm1();
 		signup->ShowDialog();
@@ -267,11 +264,11 @@ namespace Project34 {
 	}
 
 
-private: System::Void button1_Click_1(System::Object^ sender, System::EventArgs^ e) {
-	this->Close();
-}
+
 private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
-	this->Close();
+
+	Application::Exit();
 }
+
 };
 }

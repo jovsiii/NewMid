@@ -1,4 +1,5 @@
 #pragma once
+#include"Custom.h"
 
 namespace Project34 {
 
@@ -21,6 +22,7 @@ namespace Project34 {
 			//
 			//TODO: Add the constructor code here
 			//
+			Rounded::RoundCorners(panelTop, 30);
 		}
 
 	protected:
@@ -51,7 +53,7 @@ namespace Project34 {
 	private: System::Windows::Forms::Panel^ panelTop;
 	private: System::Windows::Forms::Label^ label8;
 	private: System::Windows::Forms::Label^ label9;
-	private: System::Windows::Forms::PictureBox^ pictureBox2;
+
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
 
 
@@ -74,14 +76,12 @@ namespace Project34 {
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MenuCC::typeid));
 			this->panelMenu = (gcnew System::Windows::Forms::Panel());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
-			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
 			this->panel3 = (gcnew System::Windows::Forms::Panel());
 			this->panelTop = (gcnew System::Windows::Forms::Panel());
 			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->label9 = (gcnew System::Windows::Forms::Label());
 			this->panelMenu->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			this->panelTop->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -90,10 +90,10 @@ namespace Project34 {
 			this->panelMenu->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(60)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
 				static_cast<System::Int32>(static_cast<System::Byte>(33)));
 			this->panelMenu->Controls->Add(this->pictureBox1);
-			this->panelMenu->Controls->Add(this->pictureBox2);
 			this->panelMenu->Controls->Add(this->panel3);
 			this->panelMenu->Controls->Add(this->panelTop);
 			this->panelMenu->Controls->Add(this->label9);
+			this->panelMenu->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->panelMenu->Location = System::Drawing::Point(0, 0);
 			this->panelMenu->Name = L"panelMenu";
 			this->panelMenu->Size = System::Drawing::Size(1019, 618);
@@ -109,24 +109,14 @@ namespace Project34 {
 			this->pictureBox1->TabStop = false;
 			this->pictureBox1->Click += gcnew System::EventHandler(this, &MenuCC::pictureBox1_Click);
 			// 
-			// pictureBox2
-			// 
-			this->pictureBox2->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.BackgroundImage")));
-			this->pictureBox2->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->pictureBox2->Location = System::Drawing::Point(865, 40);
-			this->pictureBox2->Name = L"pictureBox2";
-			this->pictureBox2->Size = System::Drawing::Size(93, 65);
-			this->pictureBox2->TabIndex = 26;
-			this->pictureBox2->TabStop = false;
-			// 
 			// panel3
 			// 
 			this->panel3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
 				static_cast<System::Int32>(static_cast<System::Byte>(192)));
 			this->panel3->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"panel3.BackgroundImage")));
-			this->panel3->Location = System::Drawing::Point(3, 111);
+			this->panel3->Location = System::Drawing::Point(-29, 111);
 			this->panel3->Name = L"panel3";
-			this->panel3->Size = System::Drawing::Size(1016, 504);
+			this->panel3->Size = System::Drawing::Size(1048, 504);
 			this->panel3->TabIndex = 3;
 			// 
 			// panelTop
@@ -156,11 +146,12 @@ namespace Project34 {
 			// label9
 			// 
 			this->label9->AutoSize = true;
-			this->label9->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 22, System::Drawing::FontStyle::Bold));
+			this->label9->Font = (gcnew System::Drawing::Font(L"Montserrat ExtraBold", 21.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->label9->ForeColor = System::Drawing::Color::Snow;
 			this->label9->Location = System::Drawing::Point(317, 40);
 			this->label9->Name = L"label9";
-			this->label9->Size = System::Drawing::Size(198, 36);
+			this->label9->Size = System::Drawing::Size(212, 40);
 			this->label9->TabIndex = 0;
 			this->label9->Text = L"Cold Coffees";
 			// 
@@ -172,11 +163,11 @@ namespace Project34 {
 			this->Controls->Add(this->panelMenu);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			this->Name = L"MenuCC";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"MenuCC";
 			this->panelMenu->ResumeLayout(false);
 			this->panelMenu->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
 			this->panelTop->ResumeLayout(false);
 			this->panelTop->PerformLayout();
 			this->ResumeLayout(false);
@@ -189,5 +180,6 @@ namespace Project34 {
 private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->Close();
 }
+
 };
 }

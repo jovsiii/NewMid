@@ -7,13 +7,12 @@ using namespace System::Windows::Forms;
 using namespace Project34;
 ref class Login {
 public:
-    static void login(TextBox^ txtboxUser, TextBox^ txtBoxPass) {
+    static bool login(TextBox^ txtboxUser, TextBox^ txtBoxPass) {
         String^ username = txtboxUser->Text;
         String^ password = txtBoxPass->Text;
 
         // Get the current directory of the executable
         String^ currentDirectory = Path::GetDirectoryName(Application::ExecutablePath);
-        // Specify the file name
         String^ fileName = "cred.txt";
         String^ filePath = Path::Combine(currentDirectory, fileName);
 
@@ -26,9 +25,10 @@ public:
             while ((line = file->ReadLine()) != nullptr) {
                 array<String^>^ parts = line->Split(',');
 
-                if (parts->Length == 4 && parts[0]->Trim() == username && parts[1]->Trim() == password) {
+                if (parts->Length == 3 && parts[0]->Trim() == username && parts[1]->Trim() == password) {
                     loggedIn = true;
                     break;
+
                 }
             }
 
@@ -36,35 +36,34 @@ public:
 
             if (loggedIn) {
                 Menus^ main = gcnew Menus();
+
                 main->Show();
+                return true;
             }
             else {
                 MessageBox::Show("Invalid username or password. Please try again.");
+                return false;
             }
         }
         catch (IOException^ e) {
             MessageBox::Show("Error accessing the file: " + e->Message);
+            return false;
         }
     }
-};
-
-
-ref class Register {
-public:
-    static void reg(TextBox^ tbUsername, TextBox^ tbEmail, TextBox^ tbPassword, TextBox^ tbConfirm) {
-        array<TextBox^>^ textBoxes = { tbUsername, tbEmail, tbPassword, tbConfirm };
+    static bool reg(TextBox^ tbUsername, TextBox^ tbPassword, TextBox^ tbConfirm) {
+        array<TextBox^>^ textBoxes = { tbUsername, tbPassword, tbConfirm };
 
         for each (TextBox ^ textBox in textBoxes) {
             String^ text = textBox->Text->Trim();
             if (String::IsNullOrEmpty(text) || String::IsNullOrWhiteSpace(text)) {
                 MessageBox::Show("Please fill in all the fields.");
-                return;
+                return false; // Registration failed
             }
         }
 
         if (tbPassword->Text->Trim() != tbConfirm->Text->Trim()) {
             MessageBox::Show("Passwords do not match.");
-            return;
+            return false; // Registration failed
         }
 
         // Get the current directory of the executable
@@ -74,22 +73,39 @@ public:
         String^ filePath = Path::Combine(currentDirectory, fileName);
 
         try {
+            if (File::Exists(filePath)) {
+                String^ existingContent = File::ReadAllText(filePath);
+
+                String^ newAccount = tbUsername->Text->Trim() + "," + tbPassword->Text->Trim() + "," + tbConfirm->Text->Trim();
+
+                // Check if the new account already exists in the file
+                if (existingContent->Contains(newAccount)) {
+                    MessageBox::Show("Account already exists.");
+                    return false; // Registration failed
+                }
+            }
+
             StreamWriter^ file = gcnew StreamWriter(filePath, true);
 
-            String^ newAccount = tbUsername->Text->Trim() + "," + tbPassword->Text->Trim() + "," + tbEmail->Text->Trim() + "," + tbConfirm->Text->Trim();
+            String^ newAccount = tbUsername->Text->Trim() + "," + tbPassword->Text->Trim() + "," + tbConfirm->Text->Trim();
 
             file->WriteLine(newAccount);
 
             file->Close();
 
             MessageBox::Show("Account created successfully!");
+            return true; // Registration succeeded
         }
         catch (IOException^ ex) {
             MessageBox::Show("Error accessing the file: " + ex->Message);
+            return false; // Registration failed
         }
     }
 
+
 };
+
+
 
 
 

@@ -63,10 +63,11 @@ namespace Project34 {
 
 	private: System::Windows::Forms::Button^ btnCancel;
 	private: System::Windows::Forms::Button^ btnRegister;
-	private: System::Windows::Forms::PictureBox^ pictureBox2;
+
 	private: System::Windows::Forms::Label^ label2;
-	private: System::Windows::Forms::TextBox^ tbEmail;
-	private: System::Windows::Forms::Label^ label1;
+
+
+	private: System::Windows::Forms::PictureBox^ pictureBox2;
 
 
 
@@ -94,8 +95,6 @@ namespace Project34 {
 			this->tbConfirm = (gcnew System::Windows::Forms::TextBox());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
-			this->tbEmail = (gcnew System::Windows::Forms::TextBox());
-			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->btnRegister = (gcnew System::Windows::Forms::Button());
 			this->btnCancel = (gcnew System::Windows::Forms::Button());
@@ -121,7 +120,7 @@ namespace Project34 {
 			this->lblPassword->AutoSize = true;
 			this->lblPassword->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Bold));
 			this->lblPassword->ForeColor = System::Drawing::SystemColors::ControlText;
-			this->lblPassword->Location = System::Drawing::Point(38, 194);
+			this->lblPassword->Location = System::Drawing::Point(38, 136);
 			this->lblPassword->Name = L"lblPassword";
 			this->lblPassword->Size = System::Drawing::Size(77, 17);
 			this->lblPassword->TabIndex = 3;
@@ -132,7 +131,7 @@ namespace Project34 {
 			this->lblConfirm->AutoSize = true;
 			this->lblConfirm->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Bold));
 			this->lblConfirm->ForeColor = System::Drawing::SystemColors::ControlText;
-			this->lblConfirm->Location = System::Drawing::Point(38, 250);
+			this->lblConfirm->Location = System::Drawing::Point(38, 182);
 			this->lblConfirm->Name = L"lblConfirm";
 			this->lblConfirm->Size = System::Drawing::Size(137, 17);
 			this->lblConfirm->TabIndex = 4;
@@ -140,6 +139,7 @@ namespace Project34 {
 			// 
 			// tbUsername
 			// 
+			this->tbUsername->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->tbUsername->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Bold));
 			this->tbUsername->Location = System::Drawing::Point(41, 99);
 			this->tbUsername->Name = L"tbUsername";
@@ -148,16 +148,18 @@ namespace Project34 {
 			// 
 			// tbPassword
 			// 
+			this->tbPassword->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->tbPassword->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Bold));
-			this->tbPassword->Location = System::Drawing::Point(41, 214);
+			this->tbPassword->Location = System::Drawing::Point(41, 156);
 			this->tbPassword->Name = L"tbPassword";
 			this->tbPassword->Size = System::Drawing::Size(240, 23);
 			this->tbPassword->TabIndex = 7;
 			// 
 			// tbConfirm
 			// 
+			this->tbConfirm->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->tbConfirm->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Bold));
-			this->tbConfirm->Location = System::Drawing::Point(41, 270);
+			this->tbConfirm->Location = System::Drawing::Point(41, 215);
 			this->tbConfirm->Name = L"tbConfirm";
 			this->tbConfirm->Size = System::Drawing::Size(240, 23);
 			this->tbConfirm->TabIndex = 8;
@@ -176,8 +178,6 @@ namespace Project34 {
 			// 
 			this->panel1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(229)), static_cast<System::Int32>(static_cast<System::Byte>(229)),
 				static_cast<System::Int32>(static_cast<System::Byte>(203)));
-			this->panel1->Controls->Add(this->tbEmail);
-			this->panel1->Controls->Add(this->label1);
 			this->panel1->Controls->Add(this->label2);
 			this->panel1->Controls->Add(this->btnRegister);
 			this->panel1->Controls->Add(this->btnCancel);
@@ -187,39 +187,21 @@ namespace Project34 {
 			this->panel1->Controls->Add(this->tbUsername);
 			this->panel1->Controls->Add(this->lblConfirm);
 			this->panel1->Controls->Add(this->tbPassword);
-			this->panel1->Location = System::Drawing::Point(402, 160);
+			this->panel1->Location = System::Drawing::Point(348, 176);
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(323, 382);
 			this->panel1->TabIndex = 12;
 			// 
-			// tbEmail
-			// 
-			this->tbEmail->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Bold));
-			this->tbEmail->Location = System::Drawing::Point(41, 158);
-			this->tbEmail->Name = L"tbEmail";
-			this->tbEmail->Size = System::Drawing::Size(240, 23);
-			this->tbEmail->TabIndex = 14;
-			// 
-			// label1
-			// 
-			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Bold));
-			this->label1->ForeColor = System::Drawing::SystemColors::ControlText;
-			this->label1->Location = System::Drawing::Point(38, 138);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(47, 17);
-			this->label1->TabIndex = 14;
-			this->label1->Text = L"Email";
-			// 
 			// label2
 			// 
 			this->label2->BackColor = System::Drawing::Color::Transparent;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 20, System::Drawing::FontStyle::Bold));
+			this->label2->Font = (gcnew System::Drawing::Font(L"Montserrat", 27.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->label2->ForeColor = System::Drawing::SystemColors::Desktop;
 			this->label2->ImeMode = System::Windows::Forms::ImeMode::NoControl;
-			this->label2->Location = System::Drawing::Point(105, 12);
+			this->label2->Location = System::Drawing::Point(66, 12);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(152, 38);
+			this->label2->Size = System::Drawing::Size(281, 67);
 			this->label2->TabIndex = 14;
 			this->label2->Text = L"SIGN UP";
 			// 
@@ -227,7 +209,14 @@ namespace Project34 {
 			// 
 			this->btnRegister->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(213)), static_cast<System::Int32>(static_cast<System::Byte>(206)),
 				static_cast<System::Int32>(static_cast<System::Byte>(163)));
-			this->btnRegister->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic))));
+			this->btnRegister->FlatAppearance->BorderSize = 0;
+			this->btnRegister->FlatAppearance->MouseDownBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(60)),
+				static_cast<System::Int32>(static_cast<System::Byte>(42)), static_cast<System::Int32>(static_cast<System::Byte>(33)));
+			this->btnRegister->FlatAppearance->MouseOverBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(60)),
+				static_cast<System::Int32>(static_cast<System::Byte>(42)), static_cast<System::Int32>(static_cast<System::Byte>(33)));
+			this->btnRegister->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btnRegister->Font = (gcnew System::Drawing::Font(L"Montserrat", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->btnRegister->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->btnRegister->ImeMode = System::Windows::Forms::ImeMode::NoControl;
 			this->btnRegister->Location = System::Drawing::Point(41, 322);
@@ -242,7 +231,14 @@ namespace Project34 {
 			// 
 			this->btnCancel->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(213)), static_cast<System::Int32>(static_cast<System::Byte>(206)),
 				static_cast<System::Int32>(static_cast<System::Byte>(163)));
-			this->btnCancel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic))));
+			this->btnCancel->FlatAppearance->BorderSize = 0;
+			this->btnCancel->FlatAppearance->MouseDownBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(60)),
+				static_cast<System::Int32>(static_cast<System::Byte>(42)), static_cast<System::Int32>(static_cast<System::Byte>(33)));
+			this->btnCancel->FlatAppearance->MouseOverBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(60)),
+				static_cast<System::Int32>(static_cast<System::Byte>(42)), static_cast<System::Int32>(static_cast<System::Byte>(33)));
+			this->btnCancel->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btnCancel->Font = (gcnew System::Drawing::Font(L"Montserrat", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->btnCancel->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->btnCancel->ImeMode = System::Windows::Forms::ImeMode::NoControl;
 			this->btnCancel->Location = System::Drawing::Point(185, 322);
@@ -257,7 +253,7 @@ namespace Project34 {
 			// 
 			this->pictureBox2->BackColor = System::Drawing::Color::Transparent;
 			this->pictureBox2->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.BackgroundImage")));
-			this->pictureBox2->Location = System::Drawing::Point(477, 12);
+			this->pictureBox2->Location = System::Drawing::Point(423, 28);
 			this->pictureBox2->Name = L"pictureBox2";
 			this->pictureBox2->Size = System::Drawing::Size(170, 148);
 			this->pictureBox2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::CenterImage;
@@ -270,15 +266,17 @@ namespace Project34 {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::SaddleBrown;
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
-			this->ClientSize = System::Drawing::Size(1090, 590);
+			this->ClientSize = System::Drawing::Size(1019, 618);
 			this->ControlBox = false;
 			this->Controls->Add(this->pictureBox2);
 			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->pictureBox1);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"MyForm1";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"MyForm1";
+			this->Load += gcnew System::EventHandler(this, &MyForm1::MyForm1_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();
@@ -287,13 +285,22 @@ namespace Project34 {
 
 		}
 #pragma endregion
+		private: System::Void MyForm1_Load(System::Object^ sender, System::EventArgs^ e) {
+			Rounded::CurveButton(btnCancel, 20);
+			Rounded::CurveButton(btnRegister, 20);
+		}
 private: System::Void btnCancel_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->Close();
 }
 private: System::Void btnRegister_Click_1(System::Object^ sender, System::EventArgs^ e) {
 
-	Register::reg(tbUsername, tbEmail, tbPassword, tbConfirm);
+	if (Login::reg(tbUsername, tbPassword, tbConfirm)) {
+		// Registration succeeded, close the form
+		this->Close();
+	}
+	
 }
+
 };
 
 }

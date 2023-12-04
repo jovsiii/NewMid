@@ -1,4 +1,5 @@
 #pragma once
+
 using namespace System::Drawing::Drawing2D;
 using namespace System;
 using namespace System::IO;
@@ -19,13 +20,6 @@ public:
 
         control->Region = gcnew System::Drawing::Region(path);
     }
-
-
-
-};
-
-public ref class ButtonStyler
-{
 public:
     static void CurveButton(Button^ button, int radius)
     {
@@ -39,6 +33,9 @@ public:
 
         button->Region = gcnew System::Drawing::Region(path);
     }
+
+
+
 };
 
 public ref class ReceiptManager {
@@ -57,20 +54,17 @@ public:
         comboBox2 = cb2;
         textBox1 = tb;
     }
-
     void DisplayAllItemsInRichTextBox() {
+
         int columnIndex = 3; // Change this to the correct column index
 
         int total = 0;
 
         for each (DataGridViewRow ^ row in dataGridView1->Rows) {
-            // Check if the row is not empty (avoiding the new row at the bottom)
             if (row->IsNewRow) continue;
 
-            // Get the value in the specified column
             Object^ value = row->Cells[columnIndex]->Value;
 
-            // Check if the value is not null and is convertible to an integer
             if (value != nullptr) {
                 total += Convert::ToInt32(value);
             }
@@ -78,59 +72,58 @@ public:
 
         // Get the current date and time
         DateTime currentDateTime = DateTime::Now;
-
-        // Format the date and time as a string
         String^ formattedDateTime = currentDateTime.ToString("yyyy-MM-dd HH:mm:ss");
 
-        // Initialize a RichTextBox to hold the formatted values
-        richTextBox1->Clear();  // Assuming you have a RichTextBox named richTextBox1
+        richTextBox1->Clear();
+
+        // Set the font to a monospaced font like Courier New
+        richTextBox1->Font = gcnew System::Drawing::Font("Courier New", 10);
 
         // Add a header to the receipt with the current date and time
-        richTextBox1->AppendText("=====================================================" + Environment::NewLine);
-        richTextBox1->AppendText("                             RECEIPT (" + formattedDateTime + ")        " + Environment::NewLine);
-        richTextBox1->AppendText("=====================================================" + Environment::NewLine);
+        richTextBox1->AppendText("===================================================================" + Environment::NewLine);
+        richTextBox1->AppendText("                             PAHUWAY        " + Environment::NewLine);
+        richTextBox1->AppendText("                             RECEIPT        " + Environment::NewLine);
+        richTextBox1->AppendText("          " + Environment::NewLine);
+        richTextBox1->AppendText("                          DATE: (" + formattedDateTime + ")        " + Environment::NewLine);
+        richTextBox1->AppendText("          " + Environment::NewLine);
+        richTextBox1->AppendText("===================================================================" + Environment::NewLine);
 
-        // Display column names with centered text
-        for each (DataGridViewColumn ^ column in dataGridView1->Columns) {
-            int padding = (20 - column->HeaderText->Length) / 2;
-            richTextBox1->AppendText(String::Format("{0," + padding + "}{1," + (20 - padding) + "}", "", column->HeaderText));
+       
+        array<int>^ columnPadding = gcnew array<int>{5, 5, 8, 5}; 
+
+        array<int>^ columnPadding1 = gcnew array<int>{10, 10, 5, 5};
+
+        // Display column names with individual spaces between columns
+        for (int i = 0; i < dataGridView1->Columns->Count; ++i) {
+            richTextBox1->AppendText(String::Format("{0," + (columnPadding1[i] + dataGridView1->Columns[i]->HeaderText->Length) + "}   ", dataGridView1->Columns[i]->HeaderText));
         }
         richTextBox1->AppendText(Environment::NewLine);
 
+
         // Iterate through each row in the DataGridView
         for each (DataGridViewRow ^ row in dataGridView1->Rows) {
-            // Skip the new row at the bottom of the DataGridView
             if (row->IsNewRow) continue;
 
-            // Iterate through each cell in the row
             for each (DataGridViewCell ^ cell in row->Cells) {
-                // Check if the cell value is not null
-                if (cell->Value != nullptr) {
-                    // Append the cell value to the RichTextBox with centered formatting
-                    int padding = (20 - cell->Value->ToString()->Length) / 2;
-                    richTextBox1->AppendText(String::Format("{0," + padding + "}{1," + (22 - padding) + "}", "", cell->Value->ToString()));
-                }
-                else {
-                    // Append an empty string if the cell value is null
-                    richTextBox1->AppendText(String::Format("{20,-40}", " - "));
-                }
+                int padding = (columnPadding[cell->ColumnIndex] - cell->Value->ToString()->Length) / 2;
+                richTextBox1->AppendText(String::Format("{0," + (columnPadding[cell->ColumnIndex] + cell->Value->ToString()->Length) + "}   ", cell->Value->ToString()));
             }
 
-            // Add a newline after each row
             richTextBox1->AppendText(Environment::NewLine);
         }
 
-        // Add a footer to the receipt
-        richTextBox1->AppendText("======================================================" + Environment::NewLine);
-        richTextBox1->AppendText("                                                                                 TOTAL:  " + total + Environment::NewLine);
-        
+        richTextBox1->AppendText("===================================================================" + Environment::NewLine);
+        richTextBox1->AppendText(String::Format("                                                TOTAL: Php. {0}", total + ".00") + Environment::NewLine);
     }
+
+
+
 
     void FillComboBox() {
         comboBox1->Items->Clear();
-        String^ documentsPath = Environment::GetFolderPath(Environment::SpecialFolder::MyDocuments);
+        String^ currentDirectory = Path::GetDirectoryName(Application::ExecutablePath);
         String^ fileName = "Menu.txt";
-        String^ filePath = Path::Combine(documentsPath, fileName);
+        String^ filePath = Path::Combine(currentDirectory, fileName);
 
         try {
             StreamReader^ file = gcnew StreamReader(filePath);
