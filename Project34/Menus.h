@@ -104,6 +104,7 @@ private: System::Windows::Forms::Panel^ panel3;
 private: System::Windows::Forms::Panel^ panel5;
 private: System::Windows::Forms::Panel^ panel6;
 private: System::Windows::Forms::Panel^ panel7;
+	private: System::Windows::Forms::PictureBox^ pictureBox1;
 	protected:
 
 	protected:
@@ -121,7 +122,7 @@ private: System::Windows::Forms::Panel^ panel7;
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Menus::typeid));
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle6 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle1 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			this->printDocument1 = (gcnew System::Drawing::Printing::PrintDocument());
 			this->printPreviewDialog1 = (gcnew System::Windows::Forms::PrintPreviewDialog());
 			this->pictureBox4 = (gcnew System::Windows::Forms::PictureBox());
@@ -131,6 +132,7 @@ private: System::Windows::Forms::Panel^ panel7;
 			this->lblCC = (gcnew System::Windows::Forms::Label());
 			this->panelOrder = (gcnew System::Windows::Forms::Panel());
 			this->panelReciept = (gcnew System::Windows::Forms::Panel());
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->pictureBox7 = (gcnew System::Windows::Forms::PictureBox());
 			this->pictureBox6 = (gcnew System::Windows::Forms::PictureBox());
 			this->button2 = (gcnew System::Windows::Forms::Button());
@@ -165,6 +167,7 @@ private: System::Windows::Forms::Panel^ panel7;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->BeginInit();
 			this->panelOrder->SuspendLayout();
 			this->panelReciept->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox7))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox6))->BeginInit();
 			this->panel1->SuspendLayout();
@@ -287,6 +290,7 @@ private: System::Windows::Forms::Panel^ panel7;
 			// 
 			// panelReciept
 			// 
+			this->panelReciept->Controls->Add(this->pictureBox1);
 			this->panelReciept->Controls->Add(this->pictureBox7);
 			this->panelReciept->Controls->Add(this->pictureBox6);
 			this->panelReciept->Controls->Add(this->button2);
@@ -298,6 +302,16 @@ private: System::Windows::Forms::Panel^ panel7;
 			this->panelReciept->Name = L"panelReciept";
 			this->panelReciept->Size = System::Drawing::Size(1017, 617);
 			this->panelReciept->TabIndex = 20;
+			// 
+			// pictureBox1
+			// 
+			this->pictureBox1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.BackgroundImage")));
+			this->pictureBox1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->pictureBox1->Location = System::Drawing::Point(869, 58);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(128, 116);
+			this->pictureBox1->TabIndex = 20;
+			this->pictureBox1->TabStop = false;
 			// 
 			// pictureBox7
 			// 
@@ -422,9 +436,9 @@ private: System::Windows::Forms::Panel^ panel7;
 			// 
 			this->pictureBox2->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.BackgroundImage")));
 			this->pictureBox2->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->pictureBox2->Location = System::Drawing::Point(888, 79);
+			this->pictureBox2->Location = System::Drawing::Point(836, 23);
 			this->pictureBox2->Name = L"pictureBox2";
-			this->pictureBox2->Size = System::Drawing::Size(83, 60);
+			this->pictureBox2->Size = System::Drawing::Size(128, 116);
 			this->pictureBox2->TabIndex = 8;
 			this->pictureBox2->TabStop = false;
 			// 
@@ -471,9 +485,9 @@ private: System::Windows::Forms::Panel^ panel7;
 			this->dataGridView1->AllowUserToDeleteRows = false;
 			this->dataGridView1->AllowUserToResizeColumns = false;
 			this->dataGridView1->AllowUserToResizeRows = false;
-			dataGridViewCellStyle6->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)),
+			dataGridViewCellStyle1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)),
 				static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)));
-			this->dataGridView1->AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+			this->dataGridView1->AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
 			this->dataGridView1->BackgroundColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(213)),
 				static_cast<System::Int32>(static_cast<System::Byte>(206)), static_cast<System::Int32>(static_cast<System::Byte>(163)));
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
@@ -700,6 +714,7 @@ private: System::Windows::Forms::Panel^ panel7;
 			this->panelOrder->ResumeLayout(false);
 			this->panelOrder->PerformLayout();
 			this->panelReciept->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox7))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox6))->EndInit();
 			this->panel1->ResumeLayout(false);
@@ -736,6 +751,9 @@ private: System::Windows::Forms::Panel^ panel7;
 		Rounded::CurveButton(button2, 20);
 		Rounded::CurveButton(btnPrint, 20);
 		Rounded::RoundCorners(panel1,30);
+		Rounded::RoundCorners(panelTop1, 30);
+
+	
 		
 	}
 	private: System::Void btnReciept_Click(System::Object^ sender, System::EventArgs^ e) {
