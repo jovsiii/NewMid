@@ -167,6 +167,7 @@
     <ClInclude Include="MyForm1.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="recieptManager.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MenuCC.resx">

@@ -5,16 +5,18 @@ using namespace System;
 using namespace System::IO;
 using namespace System::Windows::Forms;
 using namespace Project34;
+
+
 ref class Login {
+    static String^ currentDirectory = Path::GetDirectoryName(Application::ExecutablePath);
+    static String^ fileName = "cred.txt";
+    static String^ filePath = Path::Combine(currentDirectory, fileName);
+
 public:
     static bool login(TextBox^ txtboxUser, TextBox^ txtBoxPass) {
         String^ username = txtboxUser->Text;
         String^ password = txtBoxPass->Text;
 
-        // Get the current directory of the executable
-        String^ currentDirectory = Path::GetDirectoryName(Application::ExecutablePath);
-        String^ fileName = "cred.txt";
-        String^ filePath = Path::Combine(currentDirectory, fileName);
 
         try {
             StreamReader^ file = gcnew StreamReader(filePath);
@@ -66,11 +68,6 @@ public:
             MessageBox::Show("Passwords do not match.");
             return false; 
         }
-
-        // Get the current directory of the executable
-        String^ currentDirectory = Path::GetDirectoryName(Application::ExecutablePath);
-        String^ fileName = "cred.txt";
-        String^ filePath = Path::Combine(currentDirectory, fileName);
 
         try {
             if (File::Exists(filePath)) {

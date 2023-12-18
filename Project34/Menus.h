@@ -1,5 +1,6 @@
 #pragma once
 #include"Custom.h"
+#include"recieptManager.h"
 #include"MenuFC.h"
 #include"MenuEB.h"
 #include"MenuCC.h"
