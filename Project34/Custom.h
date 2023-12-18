@@ -73,7 +73,6 @@ public:
             }
         }
         //Get time and date for reciept
-
         DateTime currentDateTime = DateTime::Now;
         String^ formattedDateTime = currentDateTime.ToString("yyyy-MM-dd HH:mm:ss");
 
@@ -83,11 +82,11 @@ public:
 
       
         richTextBox1->AppendText("===================================================================" + Environment::NewLine);
-        richTextBox1->AppendText("                             PAHUWAY        " + Environment::NewLine);
-        richTextBox1->AppendText("                             RECEIPT        " + Environment::NewLine);
-        richTextBox1->AppendText("          " + Environment::NewLine);
-        richTextBox1->AppendText("                          DATE: (" + formattedDateTime + ")        " + Environment::NewLine);
-        richTextBox1->AppendText("          " + Environment::NewLine);
+        richTextBox1->AppendText("=                            PAHUWAY                              =" + Environment::NewLine);
+        richTextBox1->AppendText("=                            RECEIPT                              =" + Environment::NewLine);
+        richTextBox1->AppendText("=                                                                 = " + Environment::NewLine);
+        richTextBox1->AppendText("=                         DATE: (" + formattedDateTime + ")             =" + Environment::NewLine);
+        richTextBox1->AppendText("=                                                                 = " + Environment::NewLine);
         richTextBox1->AppendText("===================================================================" + Environment::NewLine);
 
        

@@ -37,7 +37,7 @@ namespace Project34 {
 			
 	
 			dataGridView1->Columns->Add("Column1", "Drink Name");
-			dataGridView1->Columns->Add("Column2", "");
+			dataGridView1->Columns->Add("Column2", "Size");
 			dataGridView1->Columns->Add("Column3", "Quantity");
 			dataGridView1->Columns->Add("Total", "Total");
 			// Set the background color and text color for selected cells
@@ -51,6 +51,19 @@ namespace Project34 {
 			printPreviewDialog1->Document = printDocument1;
 			receiptManager = gcnew ReceiptManager(dataGridView1, richTextBox1, comboBox1, comboBox2, textBox1);
 			receiptManager->FillComboBox();
+
+
+			Rounded::CurveButton(btnOrder, 30);
+
+			Rounded::RoundCorners(panel1, 30);
+			Rounded::RoundCorners(panelTop1, 30);
+
+			Rounded::CurveButton(button2, 20);
+			Rounded::CurveButton(btnPrint, 20);
+			Rounded::CurveButton(btnSeeMenu, 20);
+			Rounded::CurveButton(btnAdd, 20);
+			Rounded::CurveButton(btnRemove, 20);
+			Rounded::CurveButton(btnReciept, 20);
 		}
 
 	protected:
@@ -302,6 +315,7 @@ private: System::Windows::Forms::Panel^ panel7;
 			this->panelReciept->Name = L"panelReciept";
 			this->panelReciept->Size = System::Drawing::Size(1017, 617);
 			this->panelReciept->TabIndex = 20;
+		
 			// 
 			// pictureBox1
 			// 
@@ -744,18 +758,6 @@ private: System::Windows::Forms::Panel^ panel7;
 
 	private: System::Void Menus_Load(System::Object^ sender, System::EventArgs^ e) {
 
-		Rounded::CurveButton(btnOrder, 30);
-		Rounded::CurveButton(btnSeeMenu, 20);
-		Rounded::CurveButton(btnAdd, 20);
-		Rounded::CurveButton(btnRemove, 20);
-		Rounded::CurveButton(btnReciept, 20);
-		Rounded::CurveButton(button2, 20);
-		Rounded::CurveButton(btnPrint, 20);
-		Rounded::RoundCorners(panel1,30);
-		Rounded::RoundCorners(panelTop1, 30);
-
-	
-		
 	}
 	private: System::Void btnReciept_Click(System::Object^ sender, System::EventArgs^ e) {
 
@@ -763,20 +765,7 @@ private: System::Windows::Forms::Panel^ panel7;
 		MessageBox::Show("No items in the DataGridView. Please add items before generating a receipt.");
 		return; 
 	}
-	int columnIndex = 3; 
 
-	int total = 0;
-
-	for each (DataGridViewRow ^ row in dataGridView1->Rows) {
-		
-		if (row->IsNewRow) continue;
-
-		
-		Object^ value = row->Cells[columnIndex]->Value;
-		if (value != nullptr) {
-			total += Convert::ToInt32(value);
-		}
-	}
 	panelReciept->Show();
 	receiptManager->DisplayAllItemsInRichTextBox();
 	
@@ -887,6 +876,8 @@ private: System::Void pictureBox7_Click(System::Object^ sender, System::EventArg
 private: System::Void pictureBox6_Click(System::Object^ sender, System::EventArgs^ e) {
 	Application::Exit();
 }
+
+
 
 };
 }
