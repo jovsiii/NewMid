@@ -70,7 +70,7 @@ namespace Project34 {
 
 
 	private: System::Windows::Forms::Label^ label6;
-	private: System::Windows::Forms::Label^ label3;
+
 
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
 
@@ -104,7 +104,6 @@ namespace Project34 {
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->label6 = (gcnew System::Windows::Forms::Label());
-			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
@@ -116,7 +115,6 @@ namespace Project34 {
 			resources->ApplyResources(this->lblUser, L"lblUser");
 			this->lblUser->ForeColor = System::Drawing::SystemColors::Desktop;
 			this->lblUser->Name = L"lblUser";
-
 			// 
 			// lblPass
 			// 
@@ -140,7 +138,6 @@ namespace Project34 {
 			resources->ApplyResources(this->txtBoxPass, L"txtBoxPass");
 			this->txtBoxPass->ForeColor = System::Drawing::SystemColors::ControlText;
 			this->txtBoxPass->Name = L"txtBoxPass";
-			
 			// 
 			// btnSignin
 			// 
@@ -192,7 +189,6 @@ namespace Project34 {
 			this->panel1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(229)), static_cast<System::Int32>(static_cast<System::Byte>(229)),
 				static_cast<System::Int32>(static_cast<System::Byte>(203)));
 			this->panel1->Controls->Add(this->label6);
-			this->panel1->Controls->Add(this->label3);
 			this->panel1->Controls->Add(this->label1);
 			this->panel1->Controls->Add(this->lblUser);
 			this->panel1->Controls->Add(this->txtboxUser);
@@ -208,11 +204,6 @@ namespace Project34 {
 			resources->ApplyResources(this->label6, L"label6");
 			this->label6->ForeColor = System::Drawing::SystemColors::ControlText;
 			this->label6->Name = L"label6";
-			// 
-			// label3
-			// 
-			resources->ApplyResources(this->label3, L"label3");
-			this->label3->Name = L"label3";
 			// 
 			// pictureBox1
 			// 

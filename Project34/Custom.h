@@ -38,6 +38,9 @@ public:
 
 };
 
+
+
+
 public ref class ReceiptManager {
 private:
     DataGridView^ dataGridView1;
@@ -59,7 +62,7 @@ public:
         int columnIndex = 3; 
 
         int total = 0;
-
+        // Calculate total from  the DataGridView
         for each (DataGridViewRow ^ row in dataGridView1->Rows) {
             if (row->IsNewRow) continue;
 
@@ -69,13 +72,13 @@ public:
                 total += Convert::ToInt32(value);
             }
         }
+        //Get time and date for reciept
 
         DateTime currentDateTime = DateTime::Now;
         String^ formattedDateTime = currentDateTime.ToString("yyyy-MM-dd HH:mm:ss");
 
         richTextBox1->Clear();
 
-        
         richTextBox1->Font = gcnew System::Drawing::Font("Courier New", 10);
 
       
@@ -88,23 +91,23 @@ public:
         richTextBox1->AppendText("===================================================================" + Environment::NewLine);
 
        
-        array<int>^ columnPadding = gcnew array<int>{5, 5, 8, 5}; 
+        array<int>^ barpadding = gcnew array<int>{5, 5, 8, 5}; 
 
-        array<int>^ columnPadding1 = gcnew array<int>{10, 10, 5, 5};
+        array<int>^ contentPadding = gcnew array<int>{10, 10, 5, 5};
 
         for (int i = 0; i < dataGridView1->Columns->Count; ++i) {
-            richTextBox1->AppendText(String::Format("{0," + (columnPadding1[i] + dataGridView1->Columns[i]->HeaderText->Length) + "}   ", dataGridView1->Columns[i]->HeaderText));
+            richTextBox1->AppendText(String::Format("{0," + (contentPadding[i] + dataGridView1->Columns[i]->HeaderText->Length) + "}   ", dataGridView1->Columns[i]->HeaderText));
         }
         richTextBox1->AppendText(Environment::NewLine);
 
 
-        // Iterate through each row in the DataGridView
+        // Iterate through each row in the DataGridView and format the spaces of the content
         for each (DataGridViewRow ^ row in dataGridView1->Rows) {
             if (row->IsNewRow) continue;
 
             for each (DataGridViewCell ^ cell in row->Cells) {
-                int padding = (columnPadding[cell->ColumnIndex] - cell->Value->ToString()->Length) / 2;
-                richTextBox1->AppendText(String::Format("{0," + (columnPadding[cell->ColumnIndex] + cell->Value->ToString()->Length) + "}   ", cell->Value->ToString()));
+                int padding = (barpadding[cell->ColumnIndex] - cell->Value->ToString()->Length) / 2;
+                richTextBox1->AppendText(String::Format("{0," + (barpadding[cell->ColumnIndex] + cell->Value->ToString()->Length) + "}   ", cell->Value->ToString()));
             }
 
             richTextBox1->AppendText(Environment::NewLine);
@@ -113,7 +116,6 @@ public:
         richTextBox1->AppendText("===================================================================" + Environment::NewLine);
         richTextBox1->AppendText(String::Format("                                                TOTAL: Php. {0}", total + ".00") + Environment::NewLine);
     }
-
 
 
 
@@ -126,7 +128,7 @@ public:
         try {
             StreamReader^ file = gcnew StreamReader(filePath);
             String^ line;
-
+            //read the file and put i
             while ((line = file->ReadLine()) != nullptr) {
                 comboBox1->Items->Add(line);
             }

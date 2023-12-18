@@ -37,7 +37,7 @@ namespace Project34 {
 			
 	
 			dataGridView1->Columns->Add("Column1", "Drink Name");
-			dataGridView1->Columns->Add("Column2", "Size");
+			dataGridView1->Columns->Add("Column2", "");
 			dataGridView1->Columns->Add("Column3", "Quantity");
 			dataGridView1->Columns->Add("Total", "Total");
 			// Set the background color and text color for selected cells
