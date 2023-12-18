@@ -50,6 +50,7 @@ public:
             return false;
         }
     }
+
     static bool reg(TextBox^ tbUsername, TextBox^ tbPassword, TextBox^ tbConfirm) {
         array<TextBox^>^ textBoxes = { tbUsername, tbPassword, tbConfirm };
 
@@ -57,31 +58,30 @@ public:
             String^ text = textBox->Text->Trim();
             if (String::IsNullOrEmpty(text) || String::IsNullOrWhiteSpace(text)) {
                 MessageBox::Show("Please fill in all the fields.");
-                return false; // Registration failed
+                return false; 
             }
         }
 
         if (tbPassword->Text->Trim() != tbConfirm->Text->Trim()) {
             MessageBox::Show("Passwords do not match.");
-            return false; // Registration failed
+            return false; 
         }
 
         // Get the current directory of the executable
         String^ currentDirectory = Path::GetDirectoryName(Application::ExecutablePath);
-        // Specify the file name
         String^ fileName = "cred.txt";
         String^ filePath = Path::Combine(currentDirectory, fileName);
 
         try {
             if (File::Exists(filePath)) {
-                String^ existingContent = File::ReadAllText(filePath);
+                String^ Accounts = File::ReadAllText(filePath);
 
                 String^ newAccount = tbUsername->Text->Trim() + "," + tbPassword->Text->Trim() + "," + tbConfirm->Text->Trim();
 
-                // Check if the new account already exists in the file
-                if (existingContent->Contains(newAccount)) {
+          
+                if (Accounts->Contains(newAccount)) {
                     MessageBox::Show("Account already exists.");
-                    return false; // Registration failed
+                    return false;
                 }
             }
 
@@ -94,11 +94,11 @@ public:
             file->Close();
 
             MessageBox::Show("Account created successfully!");
-            return true; // Registration succeeded
+            return true; 
         }
         catch (IOException^ ex) {
             MessageBox::Show("Error accessing the file: " + ex->Message);
-            return false; // Registration failed
+            return false; 
         }
     }
 

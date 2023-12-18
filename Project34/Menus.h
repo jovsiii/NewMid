@@ -37,7 +37,7 @@ namespace Project34 {
 			
 	
 			dataGridView1->Columns->Add("Column1", "Drink Name");
-			dataGridView1->Columns->Add("Column2", "Price");
+			dataGridView1->Columns->Add("Column2", "Size");
 			dataGridView1->Columns->Add("Column3", "Quantity");
 			dataGridView1->Columns->Add("Total", "Total");
 			// Set the background color and text color for selected cells
@@ -398,6 +398,7 @@ private: System::Windows::Forms::Panel^ panel7;
 			this->richTextBox1->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->richTextBox1->Location = System::Drawing::Point(316, 58);
 			this->richTextBox1->Name = L"richTextBox1";
+			this->richTextBox1->ReadOnly = true;
 			this->richTextBox1->Size = System::Drawing::Size(547, 474);
 			this->richTextBox1->TabIndex = 0;
 			this->richTextBox1->Text = L"";
@@ -546,9 +547,9 @@ private: System::Windows::Forms::Panel^ panel7;
 			this->label19->Location = System::Drawing::Point(38, 252);
 			this->label19->Name = L"label19";
 			this->label19->RightToLeft = System::Windows::Forms::RightToLeft::No;
-			this->label19->Size = System::Drawing::Size(59, 20);
+			this->label19->Size = System::Drawing::Size(54, 20);
 			this->label19->TabIndex = 12;
-			this->label19->Text = L"Price: ";
+			this->label19->Text = L"Size: ";
 			// 
 			// comboBox2
 			// 

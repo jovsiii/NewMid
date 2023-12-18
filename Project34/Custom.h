@@ -56,7 +56,7 @@ public:
     }
     void DisplayAllItemsInRichTextBox() {
 
-        int columnIndex = 3; // Change this to the correct column index
+        int columnIndex = 3; 
 
         int total = 0;
 
@@ -70,16 +70,15 @@ public:
             }
         }
 
-        // Get the current date and time
         DateTime currentDateTime = DateTime::Now;
         String^ formattedDateTime = currentDateTime.ToString("yyyy-MM-dd HH:mm:ss");
 
         richTextBox1->Clear();
 
-        // Set the font to a monospaced font like Courier New
+        
         richTextBox1->Font = gcnew System::Drawing::Font("Courier New", 10);
 
-        // Add a header to the receipt with the current date and time
+      
         richTextBox1->AppendText("===================================================================" + Environment::NewLine);
         richTextBox1->AppendText("                             PAHUWAY        " + Environment::NewLine);
         richTextBox1->AppendText("                             RECEIPT        " + Environment::NewLine);
@@ -93,7 +92,6 @@ public:
 
         array<int>^ columnPadding1 = gcnew array<int>{10, 10, 5, 5};
 
-        // Display column names with individual spaces between columns
         for (int i = 0; i < dataGridView1->Columns->Count; ++i) {
             richTextBox1->AppendText(String::Format("{0," + (columnPadding1[i] + dataGridView1->Columns[i]->HeaderText->Length) + "}   ", dataGridView1->Columns[i]->HeaderText));
         }
@@ -151,7 +149,7 @@ public:
                 rowValues[1] = comboBox2->SelectedItem;
                 rowValues[2] = numericValue;
 
-                // Calculate total by multiplying Price and Quantity
+                // total by multiplying Price and Quantity
                 double price, quantity;
                 if (Double::TryParse(comboBox2->SelectedItem->ToString(), price) &&
                     Double::TryParse(textBox1->Text, quantity)) {
