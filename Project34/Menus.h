@@ -768,6 +768,7 @@ private: System::Windows::Forms::Panel^ panel7;
 
 	panelReciept->Show();
 	receiptManager->DisplayAllItemsInRichTextBox();
+	receiptManager->SaveToFile();
 	
 	}
 

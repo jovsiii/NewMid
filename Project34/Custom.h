@@ -115,8 +115,23 @@ public:
         richTextBox1->AppendText("===================================================================" + Environment::NewLine);
         richTextBox1->AppendText(String::Format("                                                TOTAL: Php. {0}", total + ".00") + Environment::NewLine);
     }
+    void SaveToFile() {
+        // Generate a unique filename based on current date and time
+        String^ fileName = "Receipt_" + DateTime::Now.ToString("yyyyMMdd_HHmmss") + ".txt";
 
 
+        String^ currentDirectory = Path::GetDirectoryName(Application::ExecutablePath);
+        String^ filePath = Path::Combine(currentDirectory, fileName);
+
+        try {
+
+            richTextBox1->SaveFile(filePath, RichTextBoxStreamType::PlainText);
+            MessageBox::Show("Receipt saved successfully!");
+        }
+        catch (Exception^ ex) {
+            MessageBox::Show("Error saving receipt: " + ex->Message);
+        }
+    }
 
     void FillComboBox() {
         comboBox1->Items->Clear();
@@ -176,6 +191,8 @@ public:
         }
     
     }
+
+ 
 
     void DeleteSelectedRow() {
        if (dataGridView1->SelectedRows->Count > 0) {
