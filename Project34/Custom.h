@@ -115,11 +115,10 @@ public:
         richTextBox1->AppendText("===================================================================" + Environment::NewLine);
         richTextBox1->AppendText(String::Format("                                                TOTAL: Php. {0}", total + ".00") + Environment::NewLine);
     }
+
     void SaveToFile() {
-        // Generate a unique filename based on current date and time
+       
         String^ fileName = "Receipt_" + DateTime::Now.ToString("yyyyMMdd_HHmmss") + ".txt";
-
-
         String^ currentDirectory = Path::GetDirectoryName(Application::ExecutablePath);
         String^ filePath = Path::Combine(currentDirectory, fileName);
 
