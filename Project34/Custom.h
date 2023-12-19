@@ -1,11 +1,11 @@
 #pragma once
-
 using namespace System::Drawing::Drawing2D;
 using namespace System;
 using namespace System::IO;
 using namespace System::Windows::Forms;
 
 public ref class Rounded
+
 {
 public:
     static void RoundCorners(Control^ control, int radius)

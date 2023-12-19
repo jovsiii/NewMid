@@ -23,7 +23,7 @@ namespace Project34 {
 
 	{
 	private:
-		ReceiptManager^ receiptManager;
+		Order^ order;
 
 	public:
 		Menus(void)
@@ -50,8 +50,8 @@ namespace Project34 {
 			printDocument1 = gcnew System::Drawing::Printing::PrintDocument();
 			printDocument1->PrintPage += gcnew System::Drawing::Printing::PrintPageEventHandler(this, &Menus::printDocument1_);
 			printPreviewDialog1->Document = printDocument1;
-			receiptManager = gcnew ReceiptManager(dataGridView1, richTextBox1, comboBox1, comboBox2, textBox1);
-			receiptManager->FillComboBox();
+			order = gcnew Order(dataGridView1, richTextBox1, comboBox1, comboBox2, textBox1);
+			order->fillCombobox();
 
 
 			Rounded::CurveButton(btnOrder, 30);
@@ -768,16 +768,16 @@ private: System::Windows::Forms::Panel^ panel7;
 	}
 
 	panelReciept->Show();
-	receiptManager->DisplayAllItemsInRichTextBox();
-	receiptManager->SaveToFile();
+	order->Reciept();
+	order->saveToText();
 	
 	}
 
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-		receiptManager->SetItems();
+		order->buildOrder();
 	}
 	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
-		receiptManager->DeleteSelectedRow();
+		order->removeRow();
 	}
 
 	private: System::Void btnOrder_Click(System::Object^ sender, System::EventArgs^ e) {

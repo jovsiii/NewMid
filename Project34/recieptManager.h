@@ -1,11 +1,11 @@
-
+#pragma once
 using namespace System::Drawing::Drawing2D;
 using namespace System;
 using namespace System::IO;
 using namespace System::Windows::Forms;
 
 
-public ref class ReceiptManager {
+public ref class Order {
    static String^ currentDirectory = Path::GetDirectoryName(Application::ExecutablePath);
 
 private:
@@ -16,14 +16,14 @@ private:
     TextBox^ textBox1;
 
 public:
-    ReceiptManager(DataGridView^ dgv, RichTextBox^ rtb, ComboBox^ cb1, ComboBox^ cb2, TextBox^ tb) {
+    Order(DataGridView^ dgv, RichTextBox^ rtb, ComboBox^ cb1, ComboBox^ cb2, TextBox^ tb) {
         dataGridView1 = dgv;
         richTextBox1 = rtb;
         comboBox1 = cb1;
         comboBox2 = cb2;
         textBox1 = tb;
     }
-    void DisplayAllItemsInRichTextBox() {
+    void Reciept() {
 
         int columnIndex = 3;
 
@@ -81,7 +81,7 @@ public:
         richTextBox1->AppendText(String::Format("                                                TOTAL: Php. {0}", total + ".00") + Environment::NewLine);
     }
 
-    void SaveToFile() {
+    void saveToText() {
 
         String^ fileName = "Receipt_" + DateTime::Now.ToString("yyyyMMdd_HHmmss") + ".txt";
         String^ filePath = Path::Combine(currentDirectory, fileName);
@@ -96,7 +96,7 @@ public:
         }
     }
 
-    void FillComboBox() {
+    void fillCombobox() {
         comboBox1->Items->Clear();
        
         String^ fileName = "Menu.txt";
@@ -117,7 +117,7 @@ public:
 
     }
 
-    void SetItems() {
+    void buildOrder() {
 
         if (comboBox1->SelectedItem != nullptr && comboBox2->SelectedItem != nullptr && !String::IsNullOrEmpty(textBox1->Text)) {
             int numericValue;
@@ -157,7 +157,7 @@ public:
 
 
 
-    void DeleteSelectedRow() {
+    void removeRow() {
         if (dataGridView1->SelectedRows->Count > 0) {
             // Get the index of the selected row
             int selectedIndex = dataGridView1->SelectedRows[0]->Index;
