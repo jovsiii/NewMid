@@ -239,11 +239,10 @@ namespace Project34 {
 		}
 	private: System::Void btnSignin_Click(System::Object^ sender, System::EventArgs^ e) {
 		if (Login::login(txtboxUser, txtBoxPass)) {
-			this->Hide();
+			this->Hide();	
 		}
 		
 	}
-
 	private: System::Void Signup_Click(System::Object^ sender, System::EventArgs^ e) {
 
 		MyForm1^ signup = gcnew MyForm1();
@@ -253,13 +252,9 @@ namespace Project34 {
 		Signup->ForeColor = System::Drawing::Color::Black;
 
 	}
-
-
-
-private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
-
+		private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
 	Application::Exit();
-}
+	}
 
 };
 }

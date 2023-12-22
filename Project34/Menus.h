@@ -53,7 +53,7 @@ namespace Project34 {
 			order = gcnew Order(dataGridView1, richTextBox1, comboBox1, comboBox2, textBox1);
 			order->fillCombobox();
 
-
+			//Rounded components
 			Rounded::CurveButton(btnOrder, 30);
 
 			Rounded::RoundCorners(panel1, 30);
@@ -725,7 +725,6 @@ private: System::Windows::Forms::Panel^ panel7;
 			this->Name = L"Menus";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Menus";
-			this->Load += gcnew System::EventHandler(this, &Menus::Menus_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->EndInit();
 			this->panelOrder->ResumeLayout(false);
 			this->panelOrder->PerformLayout();
@@ -755,66 +754,75 @@ private: System::Windows::Forms::Panel^ panel7;
 		}
 #pragma endregion
 
-	//GUI COMPONENTS
 
-	private: System::Void Menus_Load(System::Object^ sender, System::EventArgs^ e) {
-
-	}
 	private: System::Void btnReciept_Click(System::Object^ sender, System::EventArgs^ e) {
-
+	// button for the reciept
 	if (dataGridView1->Rows->Count < 1) {
+		//if no data is present display a message
 		MessageBox::Show("No items in the DataGridView. Please add items before generating a receipt.");
 		return; 
 	}
-
+	//shows the reciept panel
 	panelReciept->Show();
+	//uses the functions to generate a reciept
 	order->Reciept();
 	order->saveToText();
 	
 	}
 
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+		//builds the order of the customer
 		order->buildOrder();
 	}
 	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
+		//removes the selected row
 		order->removeRow();
 	}
 
 	private: System::Void btnOrder_Click(System::Object^ sender, System::EventArgs^ e) {
+		//shows the order panel
 		panelOrder->Show();
 	}
 
 
 	private:System::Void btnBackOrder_Click(System::Object^ sender, System::EventArgs^ e) {
+		//hides the order panel 
 		panelOrder->Hide();
+		//shows the home panel
 		panel2->Show();
 	}
 
 
 	private: System::Void lblFC_Click(System::Object^ sender, System::EventArgs^ e) {
+		//initializes the form Menufc
 		Menufc^ menufc = gcnew Menufc();
+		//shows the menu fc
 		menufc->Show();
 	
 	}
 	private: System::Void lblEB_Click_1(System::Object^ sender, System::EventArgs^ e) {
+		//initializes the MenuEb
 		MenuEB^ menueb = gcnew MenuEB();
+		//shows the menuEB
 		menueb->Show();
 	
 	}
 	private: System::Void lblCC_Click(System::Object^ sender, System::EventArgs^ e) {
+		//Initializes the Menu
 		MenuCC^ menucc = gcnew MenuCC();
+		//shows the menu CC
 		menucc->Show();
-
-
 	}
 
 	private: System::Void printDocument1_(System::Object^ sender, System::Drawing::Printing::PrintPageEventArgs^ e) {
-		System::Drawing::Font^ fntString = gcnew System::Drawing::Font("Times New Roman", 18, FontStyle::Regular);
+		//formats the font and size of the printed reciept
+		System::Drawing::Font^ fntString = gcnew System::Drawing::Font("Times New Roman", 10, FontStyle::Regular);
 		e->Graphics->DrawString(richTextBox1->Text, fntString, Brushes::Black, 120, 120);
 	}
 
 	private: System::Void btnPrint_Click(System::Object^ sender, System::EventArgs^ e) {
 	try {
+		//shows the print dialog box
 		printPreviewDialog1->ShowDialog();
 	}
 	catch (Exception^ ex) {
@@ -822,40 +830,38 @@ private: System::Windows::Forms::Panel^ panel7;
 
 		}
 	}
-
-
-	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-	richTextBox1->Clear();
-	dataGridView1->Rows->Clear();
-	panelReciept->Hide();
-	panelOrder->Hide();
-	panel2->Show();
-	}
 	private: System::Void button2_Click_1(System::Object^ sender, System::EventArgs^ e) {
+	//Shows the ooder panel
 	panelReciept->Hide();
 	panelOrder->Show();
 
 	}
 
 private: System::Void button3_Click_1(System::Object^ sender, System::EventArgs^ e) {
+	//closed the application
 	Application::Exit();
 }
 
 private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
+	//closed the application
 	Application::Exit();
 }
 private: System::Void btnSeeMenu_Click(System::Object^ sender, System::EventArgs^ e) {
+	//Shows the menu from the order panel
 	panel2->Show();
 	panelOrder->Hide();
 }
 private: System::Void button4_Click_1(System::Object^ sender, System::EventArgs^ e) {
+	//closed the application
 	Application::Exit();
 }
 
 private: System::Void button4_Click_2(System::Object^ sender, System::EventArgs^ e) {
+	//closed the application
 	Application::Exit();
 }
 private: System::Void pictureBox4_Click(System::Object^ sender, System::EventArgs^ e) {
+	//closed the application
 	Application::Exit();
 }
 private: System::Void pictureBox5_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -866,6 +872,7 @@ private: System::Void pictureBox5_Click(System::Object^ sender, System::EventArg
 }
 
 private: System::Void pictureBox7_Click(System::Object^ sender, System::EventArgs^ e) {
+	//reset's the components for new order
 	richTextBox1->Clear();
 	dataGridView1->Rows->Clear();
 	panelReciept->Hide();
@@ -874,12 +881,10 @@ private: System::Void pictureBox7_Click(System::Object^ sender, System::EventArg
 }
 
 
-
 private: System::Void pictureBox6_Click(System::Object^ sender, System::EventArgs^ e) {
+	//closed the application
 	Application::Exit();
 }
-
-
 
 };
 }
