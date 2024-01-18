@@ -238,14 +238,17 @@ namespace Project34 {
 		Rounded::CurveButton(btnSignin, 20);
 		}
 	private: System::Void btnSignin_Click(System::Object^ sender, System::EventArgs^ e) {
+		//checks if the returned value is true and shows the menu panel
 		if (Login::login(txtboxUser, txtBoxPass)) {
+			//hindes the current panel
 			this->Hide();	
 		}
 		
 	}
 	private: System::Void Signup_Click(System::Object^ sender, System::EventArgs^ e) {
-
+		//initializes the sign up form
 		MyForm1^ signup = gcnew MyForm1();
+		//shows the sign uup form
 		signup->ShowDialog();
 	}
 	private: System::Void Signup_MouseUp(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
@@ -255,6 +258,5 @@ namespace Project34 {
 		private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
 	Application::Exit();
 	}
-
 };
 }

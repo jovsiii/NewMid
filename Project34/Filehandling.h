@@ -28,7 +28,7 @@ public:
             String^ line;
             //default value of the login
             bool loggedIn = false;
-            //reads all the line 
+            //reads all the line  
             while ((line = file->ReadLine()) != nullptr) {
                 //seperates the username and password
                 array<String^>^ parts = line->Split(',');
@@ -114,8 +114,6 @@ public:
             return false; 
         }
     }
-
-
 };
 
 

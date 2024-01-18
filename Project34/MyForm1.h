@@ -286,21 +286,20 @@ namespace Project34 {
 		}
 #pragma endregion
 		private: System::Void MyForm1_Load(System::Object^ sender, System::EventArgs^ e) {
+			//formats the component
 			Rounded::CurveButton(btnCancel, 20);
 			Rounded::CurveButton(btnRegister, 20);
 		}
-private: System::Void btnCancel_Click(System::Object^ sender, System::EventArgs^ e) {
-	this->Close();
-}
-private: System::Void btnRegister_Click_1(System::Object^ sender, System::EventArgs^ e) {
+		private: System::Void btnCancel_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->Close();
+		}
+		private: System::Void btnRegister_Click_1(System::Object^ sender, System::EventArgs^ e) {
 
-	if (Login::reg(tbUsername, tbPassword, tbConfirm)) {
+		if (Login::reg(tbUsername, tbPassword, tbConfirm)) {
 		// Registration succeeded, close the form
 		this->Close();
+		}
 	}
-	
-}
-
 };
 
 }

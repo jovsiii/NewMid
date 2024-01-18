@@ -316,7 +316,6 @@ private: System::Windows::Forms::Panel^ panel7;
 			this->panelReciept->Name = L"panelReciept";
 			this->panelReciept->Size = System::Drawing::Size(1017, 617);
 			this->panelReciept->TabIndex = 20;
-		
 			// 
 			// pictureBox1
 			// 
@@ -885,6 +884,5 @@ private: System::Void pictureBox6_Click(System::Object^ sender, System::EventArg
 	//closed the application
 	Application::Exit();
 }
-
 };
 }
