@@ -1,5 +1,5 @@
 #pragma once
-
+#include <cstdlib>
 namespace Project34 {
 
 	using namespace System;
@@ -15,9 +15,11 @@ namespace Project34 {
 	/// </summary>
 	public ref class Game : public System::Windows::Forms::Form
 	{
-		int pipeSpeed = 8;
+		int pipeSpeed = 4;
 		int gravity = 5;
 		int score = 0;
+
+
 		
 		   
 
@@ -26,7 +28,7 @@ namespace Project34 {
 		{
 			InitializeComponent();
 			//
-			//TODO: Add the constructor code here
+			//TODO: Add the constructor code  here
 			//
 
 		
@@ -82,31 +84,34 @@ namespace Project34 {
 			// 
 			// pipeTop
 			// 
+			this->pipeTop->BackColor = System::Drawing::Color::Transparent;
 			this->pipeTop->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pipeTop.BackgroundImage")));
 			this->pipeTop->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->pipeTop->Location = System::Drawing::Point(257, 2);
+			this->pipeTop->Location = System::Drawing::Point(302, -354);
 			this->pipeTop->Name = L"pipeTop";
-			this->pipeTop->Size = System::Drawing::Size(100, 216);
+			this->pipeTop->Size = System::Drawing::Size(100, 559);
 			this->pipeTop->TabIndex = 0;
 			this->pipeTop->TabStop = false;
 			// 
 			// flappyBird
 			// 
+			this->flappyBird->BackColor = System::Drawing::Color::Transparent;
 			this->flappyBird->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"flappyBird.BackgroundImage")));
 			this->flappyBird->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->flappyBird->Location = System::Drawing::Point(39, 240);
 			this->flappyBird->Name = L"flappyBird";
-			this->flappyBird->Size = System::Drawing::Size(70, 56);
+			this->flappyBird->Size = System::Drawing::Size(47, 40);
 			this->flappyBird->TabIndex = 1;
 			this->flappyBird->TabStop = false;
 			// 
 			// pipeGround
 			// 
+			this->pipeGround->BackColor = System::Drawing::Color::Transparent;
 			this->pipeGround->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pipeGround.BackgroundImage")));
 			this->pipeGround->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->pipeGround->Location = System::Drawing::Point(257, 523);
+			this->pipeGround->Location = System::Drawing::Point(302, 486);
 			this->pipeGround->Name = L"pipeGround";
-			this->pipeGround->Size = System::Drawing::Size(100, 237);
+			this->pipeGround->Size = System::Drawing::Size(100, 847);
 			this->pipeGround->TabIndex = 2;
 			this->pipeGround->TabStop = false;
 			// 
@@ -148,6 +153,7 @@ namespace Project34 {
 			this->Controls->Add(this->pipeGround);
 			this->Controls->Add(this->flappyBird);
 			this->Controls->Add(this->pipeTop);
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			this->Name = L"Game";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Game";
@@ -163,31 +169,62 @@ namespace Project34 {
 
 		}
 #pragma endregion
+
+		private: void endGame() {
+			gameTimer->Stop();
+			scoreTxt->Text += "Game Over!!!!" + score;
+
+		}
 	private: System::Void Game_Load(System::Object^ sender, System::EventArgs^ e) {
 	}
 
 
 private: System::Void gameTimerEvent(System::Object^ sender, System::EventArgs^ e) {
+	Random^ random = gcnew Random();
+	int pipeGap = 150;
 	flappyBird->Top += gravity;
 	pipeGround->Left -= pipeSpeed;
 	pipeTop->Left -= pipeSpeed;
+	scoreTxt->Text = "Score" + score;
 
-
-	if (pipeGround->Left < -50) {
+	if (pipeGround->Left < -50 || pipeTop->Left < -80) {
+		// Switch the roles of top and bottom pipes on each iteration
 		pipeGround->Left = 400;
+		pipeTop->Left = pipeGround->Left;
+		score++;
+		// Randomly determine whether the current pipe is at the top or bottom
+		if (random->Next(0, 2) == 0) {
+			// Set a random position for the bottom pipe
+			pipeGround->Top = random->Next(200, 400);
+			pipeTop->Top = pipeGround->Top - pipeTop->Height - pipeGap; // Position the top pipe with a gap below the bottom pipe
+		}
+		else {
+			// Set a random position for the top pipe
+			pipeTop->Top = random->Next(-200, -100);
+			pipeGround->Top = pipeTop->Top + pipeTop->Height + pipeGap; // Position the bottom pipe with a gap above the top pipe
+		}
+
+		pipeSpeed++;
 	}
-	if (pipeTop->Left < -80) {
-		pipeTop->Left = 360;
+
+	// Check for collision with pipes and ground
+	if (flappyBird->Bounds.IntersectsWith(pipeGround->Bounds) || flappyBird->Bounds.IntersectsWith(pipeTop->Bounds) || flappyBird->Bounds.IntersectsWith(ground->Bounds) < -25 || flappyBird->Top < 0 || flappyBird->Top + flappyBird->Height > this->Height) {
+		endGame();
 	}
+
+
+
 }
 private: System::Void gameKeyIsDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
 	if (e->KeyCode == Keys::Space) {
 		gravity = -10;
+		
 	}
 }
 private: System::Void gameKeyIsUp(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
 	if (e->KeyCode == Keys::Space) {
 		gravity = 10;
+		
 	}
 
 }
