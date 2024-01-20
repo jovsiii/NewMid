@@ -146,7 +146,10 @@
     <ClCompile Include="Menus.cpp" />
     <ClCompile Include="MyForm1.cpp" />
     <ClCompile Include="OnBoarding.cpp" />
+    <ClCompile Include="OnBoarding1.cpp" />
+    <ClCompile Include="Proceed.cpp" />
     <ClCompile Include="Program.cpp" />
+    <ClCompile Include="SplashScreen.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Custom.h" />
@@ -175,7 +178,13 @@
     <ClInclude Include="OnBoarding.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Proceed.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="recieptManager.h" />
+    <ClInclude Include="SplashScreen.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Game.resx">
@@ -205,9 +214,18 @@
     <EmbeddedResource Include="OnBoarding.resx">
       <DependentUpon>OnBoarding.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Proceed.resx">
+      <DependentUpon>Proceed.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SplashScreen.resx">
+      <DependentUpon>SplashScreen.h</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="MidTermProject.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="..\..\..\..\Downloads\Poppins\Poppins-Bold.ttf" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />
