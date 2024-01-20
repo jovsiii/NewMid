@@ -1,12 +1,8 @@
 #pragma once
-
-
-
-
+#include "Proceed.h"
 
 namespace Project34 {
 
-#include "OnBoarding1.h"
 
 	using namespace System;
 	using namespace System::ComponentModel;
@@ -23,6 +19,7 @@ namespace Project34 {
 	public:
 		OnBoarding(void)
 		{
+
 			InitializeComponent();
 			//
 			//TODO: Add the constructor code here
@@ -133,7 +130,7 @@ namespace Project34 {
 			this->btnProceed->TabIndex = 4;
 			this->btnProceed->Text = L"Proceed";
 			this->btnProceed->UseVisualStyleBackColor = false;
-			this->btnProceed->Click += gcnew System::EventHandler(this, &OnBoarding::btnProceed_Click_1);
+			this->btnProceed->Click += gcnew System::EventHandler(this, &OnBoarding::btnProceed_Click);
 			// 
 			// OnBoarding
 			// 
@@ -157,11 +154,12 @@ namespace Project34 {
 		}
 #pragma endregion
 	
-private: System::Void btnProceed_Click_1(System::Object^ sender, System::EventArgs^ e) {
-	//Initializes the Menu
-	OnBoarding1^ onboarding1 = gcnew OnBoarding1();
-	//shows the menu CC
-	onboarding1->Show();
+
+private: System::Void btnProceed_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	Proceed^ proceed = gcnew Proceed();
+	proceed->Show();
+	
 }
 };
 }
