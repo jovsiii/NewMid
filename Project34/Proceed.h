@@ -1,5 +1,5 @@
 #pragma once
-
+#include "MyForm.h"
 namespace Project34 {
 
 	using namespace System;
@@ -190,7 +190,9 @@ namespace Project34 {
 		}
 #pragma endregion
 	private: System::Void btnGetStarted_Click(System::Object^ sender, System::EventArgs^ e) {
-
+		MyForm^ main = gcnew MyForm();
+		main->Show();
+		
 	}
 };
 }
