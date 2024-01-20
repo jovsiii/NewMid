@@ -1,8 +1,5 @@
 #pragma once
-
 #include "MyForm.h"
-#include "OnBoarding.h"
-
 namespace Project34 {
 
 	using namespace System;
@@ -13,12 +10,12 @@ namespace Project34 {
 	using namespace System::Drawing;
 
 	/// <summary>
-	/// Summary for OnBoarding1
+	/// Summary for Proceed
 	/// </summary>
-	public ref class OnBoarding1 : public System::Windows::Forms::Form
+	public ref class Proceed : public System::Windows::Forms::Form
 	{
 	public:
-		OnBoarding1(void)
+		Proceed(void)
 		{
 			InitializeComponent();
 			//
@@ -30,7 +27,7 @@ namespace Project34 {
 		/// <summary>
 		/// Clean up any resources being used.
 		/// </summary>
-		~OnBoarding1()
+		~Proceed()
 		{
 			if (components)
 			{
@@ -38,17 +35,14 @@ namespace Project34 {
 			}
 		}
 	private: System::Windows::Forms::Panel^ panel1;
-	private: System::Windows::Forms::Label^ label1;
-	private: System::Windows::Forms::Label^ label3;
-	private: System::Windows::Forms::Label^ label2;
-	private: System::Windows::Forms::Label^ label4;
+	protected:
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
 	private: System::Windows::Forms::Button^ btnGetStarted;
+	private: System::Windows::Forms::Label^ label4;
+	private: System::Windows::Forms::Label^ label3;
+	private: System::Windows::Forms::Label^ label2;
+	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::PictureBox^ pictureBox2;
-
-
-
-	protected:
 
 	private:
 		/// <summary>
@@ -63,7 +57,7 @@ namespace Project34 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(OnBoarding1::typeid));
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Proceed::typeid));
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->btnGetStarted = (gcnew System::Windows::Forms::Button());
@@ -87,10 +81,10 @@ namespace Project34 {
 			this->panel1->Controls->Add(this->label3);
 			this->panel1->Controls->Add(this->label2);
 			this->panel1->Controls->Add(this->label1);
-			this->panel1->Location = System::Drawing::Point(0, 482);
+			this->panel1->Location = System::Drawing::Point(0, 489);
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(416, 335);
-			this->panel1->TabIndex = 0;
+			this->panel1->TabIndex = 1;
 			// 
 			// pictureBox1
 			// 
@@ -115,7 +109,7 @@ namespace Project34 {
 			this->btnGetStarted->TabIndex = 5;
 			this->btnGetStarted->Text = L"Get Started";
 			this->btnGetStarted->UseVisualStyleBackColor = false;
-			this->btnGetStarted->Click += gcnew System::EventHandler(this, &OnBoarding1::btnGetStarted_Click);
+			this->btnGetStarted->Click += gcnew System::EventHandler(this, &Proceed::btnGetStarted_Click);
 			// 
 			// label4
 			// 
@@ -172,11 +166,10 @@ namespace Project34 {
 			this->pictureBox2->Location = System::Drawing::Point(12, 12);
 			this->pictureBox2->Name = L"pictureBox2";
 			this->pictureBox2->Size = System::Drawing::Size(28, 27);
-			this->pictureBox2->TabIndex = 7;
+			this->pictureBox2->TabIndex = 8;
 			this->pictureBox2->TabStop = false;
-			this->pictureBox2->Click += gcnew System::EventHandler(this, &OnBoarding1::pictureBox2_Click);
 			// 
-			// OnBoarding1
+			// Proceed
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
@@ -185,9 +178,9 @@ namespace Project34 {
 			this->Controls->Add(this->pictureBox2);
 			this->Controls->Add(this->panel1);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
-			this->Name = L"OnBoarding1";
+			this->Name = L"Proceed";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"OnBoarding1";
+			this->Text = L"Proceed";
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
@@ -197,16 +190,9 @@ namespace Project34 {
 		}
 #pragma endregion
 	private: System::Void btnGetStarted_Click(System::Object^ sender, System::EventArgs^ e) {
-		//Initializes the Menu
-		MyForm^ myform = gcnew MyForm();
-		//shows the menu CC
-		myform->Show();
-	}
-
-	
-	private: System::Void pictureBox2_Click(System::Object^ sender, System::EventArgs^ e) {
-		this->Close();
-
+		MyForm^ main = gcnew MyForm();
+		main->Show();
+		
 	}
 };
 }
