@@ -110,9 +110,9 @@ namespace Project34 {
 			// 
 			// PB2
 			// 
-			this->PB2->Location = System::Drawing::Point(282, 267);
+			this->PB2->Location = System::Drawing::Point(282, 234);
 			this->PB2->Name = L"PB2";
-			this->PB2->Size = System::Drawing::Size(130, 260);
+			this->PB2->Size = System::Drawing::Size(130, 293);
 			this->PB2->TabIndex = 4;
 			this->PB2->TabStop = false;
 			this->PB2->Click += gcnew System::EventHandler(this, &SplashScreen::PB2_Click);
@@ -173,31 +173,39 @@ namespace Project34 {
 		}
 #pragma endregion
 	private: System::Void PB1_Click(System::Object^ sender, System::EventArgs^ e) {
-		//Initializes the Menu
-		OnBoarding^ onboarding = gcnew OnBoarding();
-		//shows the menu CC
-		onboarding->Show();
-		
-	}
-private: System::Void PB2_Click(System::Object^ sender, System::EventArgs^ e) {
-		//Initializes the Menu
-		OnBoarding^ onboarding = gcnew OnBoarding();
-		//shows the menu CC
-		onboarding->Show();
-		
-}
-private: System::Void PB3_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->Close();
 		//Initializes the Menu
 		OnBoarding^ onboarding = gcnew OnBoarding();
 		//shows the menu CC
 		onboarding->Show();
 	
-}
-private: System::Void PB4_Click(System::Object^ sender, System::EventArgs^ e) {
+		
+	}
+private: System::Void PB2_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->Close();
 		//Initializes the Menu
 		OnBoarding^ onboarding = gcnew OnBoarding();
 		//shows the menu CC
 		onboarding->Show();
+		
+		
+}
+private: System::Void PB3_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->Close();
+		//Initializes the Menu
+		OnBoarding^ onboarding = gcnew OnBoarding();
+		//shows the menu CC
+		onboarding->Show();
+		
+	
+}
+private: System::Void PB4_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->Close();
+		//Initializes the Menu
+		OnBoarding^ onboarding = gcnew OnBoarding();
+		//shows the menu CC
+		onboarding->Show();
+		
 		
 }
 };

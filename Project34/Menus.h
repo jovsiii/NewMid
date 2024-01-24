@@ -1,9 +1,6 @@
 #pragma once
 #include"Custom.h"
 #include"recieptManager.h"
-#include"MenuFC.h"
-#include"MenuEB.h"
-#include"MenuCC.h"
 
 
 namespace Project34 {
@@ -253,7 +250,7 @@ private: System::Windows::Forms::Panel^ panel7;
 			this->lblFC->Size = System::Drawing::Size(45, 15);
 			this->lblFC->TabIndex = 8;
 			this->lblFC->Text = L"See all";
-			this->lblFC->Click += gcnew System::EventHandler(this, &Menus::lblFC_Click);
+			
 			// 
 			// lblEB
 			// 
@@ -268,7 +265,7 @@ private: System::Windows::Forms::Panel^ panel7;
 			this->lblEB->Size = System::Drawing::Size(45, 15);
 			this->lblEB->TabIndex = 15;
 			this->lblEB->Text = L"See all";
-			this->lblEB->Click += gcnew System::EventHandler(this, &Menus::lblEB_Click_1);
+			
 			// 
 			// lblCC
 			// 
@@ -283,7 +280,7 @@ private: System::Windows::Forms::Panel^ panel7;
 			this->lblCC->Size = System::Drawing::Size(45, 15);
 			this->lblCC->TabIndex = 17;
 			this->lblCC->Text = L"See all";
-			this->lblCC->Click += gcnew System::EventHandler(this, &Menus::lblCC_Click);
+			
 			// 
 			// panelOrder
 			// 
@@ -792,26 +789,7 @@ private: System::Windows::Forms::Panel^ panel7;
 	}
 
 
-	private: System::Void lblFC_Click(System::Object^ sender, System::EventArgs^ e) {
-		//initializes the form Menufc
-		Menufc^ menufc = gcnew Menufc();
-		//shows the menu fc
-		menufc->Show();
 	
-	}
-	private: System::Void lblEB_Click_1(System::Object^ sender, System::EventArgs^ e) {
-		//initializes the MenuEb
-		MenuEB^ menueb = gcnew MenuEB();
-		//shows the menuEB
-		menueb->Show();
-	
-	}
-	private: System::Void lblCC_Click(System::Object^ sender, System::EventArgs^ e) {
-		//Initializes the Menu
-		MenuCC^ menucc = gcnew MenuCC();
-		//shows the menu CC
-		menucc->Show();
-	}
 
 	private: System::Void printDocument1_(System::Object^ sender, System::Drawing::Printing::PrintPageEventArgs^ e) {
 		//formats the font and size of the printed reciept

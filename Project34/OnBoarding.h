@@ -1,12 +1,7 @@
 #pragma once
-
-
-
-
+#include "GetStarted.h"
 
 namespace Project34 {
-
-#include "OnBoarding1.h"
 
 	using namespace System;
 	using namespace System::ComponentModel;
@@ -159,9 +154,10 @@ namespace Project34 {
 	
 private: System::Void btnProceed_Click_1(System::Object^ sender, System::EventArgs^ e) {
 	//Initializes the Menu
-	OnBoarding1^ onboarding1 = gcnew OnBoarding1();
+	GetStarted^ getstarted = gcnew GetStarted();
 	//shows the menu CC
-	onboarding1->Show();
+	getstarted->Show();
+	this->Close();
 }
 };
 }

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -139,30 +139,42 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CappuccinoOrder.cpp" />
+    <ClCompile Include="CoffeeFrappes.cpp" />
+    <ClCompile Include="ColdDrinks.cpp" />
     <ClCompile Include="Game.cpp" />
-    <ClCompile Include="MenuCC.cpp" />
-    <ClCompile Include="MenuEB.cpp" />
-    <ClCompile Include="Menufc.cpp" />
+    <ClCompile Include="GetStarted.cpp" />
+    <ClCompile Include="Home.cpp" />
+    <ClCompile Include="MenuDrinkOne.cpp" />
     <ClCompile Include="Menus.cpp" />
     <ClCompile Include="MyForm1.cpp" />
     <ClCompile Include="OnBoarding.cpp" />
-    <ClCompile Include="OnBoarding1.cpp" />
     <ClCompile Include="Program.cpp" />
+    <ClCompile Include="Reward.cpp" />
     <ClCompile Include="SplashScreen.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CappuccinoOrder.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="CoffeeFrappes.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="ColdDrinks.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Custom.h" />
     <ClInclude Include="Filehandling.h" />
     <ClInclude Include="Game.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="MenuCC.h">
+    <ClInclude Include="GetStarted.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="MenuEB.h">
+    <ClInclude Include="Home.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="Menufc.h">
+    <ClInclude Include="MenuDrinkOne.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Menus.h">
@@ -177,26 +189,35 @@
     <ClInclude Include="OnBoarding.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="OnBoarding1.h">
+    <ClInclude Include="recieptManager.h" />
+    <ClInclude Include="Reward.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="recieptManager.h" />
     <ClInclude Include="SplashScreen.h">
       <FileType>CppForm</FileType>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="CappuccinoOrder.resx">
+      <DependentUpon>CappuccinoOrder.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CoffeeFrappes.resx">
+      <DependentUpon>CoffeeFrappes.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ColdDrinks.resx">
+      <DependentUpon>ColdDrinks.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Game.resx">
       <DependentUpon>Game.h</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MenuCC.resx">
-      <DependentUpon>MenuCC.h</DependentUpon>
+    <EmbeddedResource Include="GetStarted.resx">
+      <DependentUpon>GetStarted.h</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MenuEB.resx">
-      <DependentUpon>MenuEB.h</DependentUpon>
+    <EmbeddedResource Include="Home.resx">
+      <DependentUpon>Home.h</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MenuFC.resx">
-      <DependentUpon>Menufc.h</DependentUpon>
+    <EmbeddedResource Include="MenuDrinkOne.resx">
+      <DependentUpon>MenuDrinkOne.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menus.resx">
       <DependentUpon>Menus.h</DependentUpon>
@@ -213,8 +234,8 @@
     <EmbeddedResource Include="OnBoarding.resx">
       <DependentUpon>OnBoarding.h</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OnBoarding1.resx">
-      <DependentUpon>OnBoarding1.h</DependentUpon>
+    <EmbeddedResource Include="Reward.resx">
+      <DependentUpon>Reward.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SplashScreen.resx">
       <DependentUpon>SplashScreen.h</DependentUpon>
@@ -222,9 +243,6 @@
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="MidTermProject.rc" />
-  </ItemGroup>
-  <ItemGroup>
-    <Font Include="..\..\..\..\Downloads\Poppins\Poppins-Bold.ttf" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />
