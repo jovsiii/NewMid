@@ -23,7 +23,6 @@ namespace Project34 {
 		Home(void)
 		{
 			InitializeComponent();\
-			menudrinkone = gcnew MenuDrinkOne();
 			//
 			//TODO: Add the constructor code here
 			//
